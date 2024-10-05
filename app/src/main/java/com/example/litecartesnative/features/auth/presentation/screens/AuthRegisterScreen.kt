@@ -1,27 +1,17 @@
 package com.example.litecartesnative.features.auth.presentation.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -38,7 +28,7 @@ import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
 @Composable
-fun AuthLoginScreen(
+fun AuthRegisterScreen(
     navController: NavController
 ) {
     Scaffold(
@@ -51,7 +41,8 @@ fun AuthLoginScreen(
                 .padding(innerPadding)
         ) {
             AuthTopBar(
-                painter = painterResource(id = R.drawable.login_screen)
+                painter = painterResource(id = R.drawable.register_screen),
+                contentAlignment = Alignment.TopEnd
             )
             Column(
                 modifier = Modifier
@@ -62,6 +53,16 @@ fun AuthLoginScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
+                Input(
+                    value = "",
+                    label = "Fullname",
+                    onValueChange = {
+
+                    }
+                )
+                Spacer(
+                    modifier = Modifier.padding(2.dp)
+                )
                 Input(
                     value = "",
                     label = "Username",
@@ -113,7 +114,7 @@ fun AuthLoginScreen(
                     modifier = Modifier.padding()
                 )
                 Button(
-                    text = "Sign in with Google",
+                    text = "Sign up with Google",
                     borderColor = Color.White,
                     color = Color.Black,
                     backgroundColor = Color.White,
@@ -126,8 +127,8 @@ fun AuthLoginScreen(
 
 @Preview
 @Composable
-fun PreviewAuthLoginScreen() {
-    AuthLoginScreen(
+fun PreviewAuthRegisterScreen() {
+    AuthRegisterScreen(
         navController = rememberNavController()
     )
 }

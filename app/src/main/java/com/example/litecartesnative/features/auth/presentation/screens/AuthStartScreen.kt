@@ -34,6 +34,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
 import com.example.litecartesnative.components.StrokedText
+import com.example.litecartesnative.features.auth.presentation.components.Button
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
@@ -61,7 +62,7 @@ fun AuthStartScreen(
                 text = "selamat datang\n sobat litecartes".uppercase(),
                 color = LitecartesColor.Secondary,
                 strokeColor = Color.Black,
-                fontSize = 21.sp,
+                fontSize = 24.sp,
                 lineHeight = 24.sp,
                 textAlign = TextAlign.Center
             )
@@ -81,38 +82,18 @@ fun AuthStartScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                OutlinedButton(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(
-                            color = LitecartesColor.Secondary,
-                            shape = RoundedCornerShape(20.dp)
-                        ),
-                    onClick = { /*TODO*/ },
-                    shape = RoundedCornerShape(20.dp),
-                    border = BorderStroke(1.dp, LitecartesColor.Secondary)
-                ) {
-                    Text(
-                        text = "Daftar Sekarang".uppercase(),
-                        fontWeight = FontWeight.ExtraBold,
-                        fontFamily = nunitosFontFamily,
-                        color = LitecartesColor.Surface
-                    )
-                }
-                OutlinedButton(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    onClick = { /*TODO*/ },
-                    shape = RoundedCornerShape(20.dp),
-                    border = BorderStroke(1.dp, LitecartesColor.Secondary)
-                ) {
-                    Text(
-                        text = "Saya sudah punya akun".uppercase(),
-                        color = LitecartesColor.Secondary,
-                        fontWeight = FontWeight.ExtraBold,
-                        fontFamily = nunitosFontFamily,
-                    )
-                }
+                Button(
+                    text = "Daftar Sekarang".uppercase(),
+                    borderColor = LitecartesColor.Secondary,
+                    color = LitecartesColor.Surface ,
+                    backgroundColor = LitecartesColor.Secondary
+                )
+                Button(
+                    text = "Saya sudah punya akun".uppercase(),
+                    borderColor = LitecartesColor.Secondary,
+                    color = LitecartesColor.Secondary,
+                    backgroundColor = LitecartesColor.Surface
+                )
             }
         }
 
