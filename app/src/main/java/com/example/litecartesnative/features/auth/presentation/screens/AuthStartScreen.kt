@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
+import com.example.litecartesnative.components.Screen
 import com.example.litecartesnative.components.StrokedText
 import com.example.litecartesnative.features.auth.presentation.components.Button
 import com.example.litecartesnative.ui.theme.LitecartesColor
@@ -86,13 +87,23 @@ fun AuthStartScreen(
                     text = "Daftar Sekarang".uppercase(),
                     borderColor = LitecartesColor.Secondary,
                     color = LitecartesColor.Surface ,
-                    backgroundColor = LitecartesColor.Secondary
+                    backgroundColor = LitecartesColor.Secondary,
+                    onClick = {
+                        navController.navigate(
+                            route = Screen.AuthRegisterScreen.route
+                        )
+                    }
                 )
                 Button(
                     text = "Saya sudah punya akun".uppercase(),
                     borderColor = LitecartesColor.Secondary,
                     color = LitecartesColor.Secondary,
-                    backgroundColor = LitecartesColor.Surface
+                    backgroundColor = LitecartesColor.Surface,
+                    onClick = {
+                        navController.navigate(
+                            route = Screen.AuthLoginScreen.route
+                        )
+                    }
                 )
             }
         }

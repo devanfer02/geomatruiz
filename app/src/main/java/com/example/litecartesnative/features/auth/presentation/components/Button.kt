@@ -31,13 +31,14 @@ fun Button(
     backgroundColor: Color,
     borderColor: Color,
     icon: Painter? = null,
+    onClick: () -> Unit = {},
     horizontalArrangement: Arrangement.Horizontal = Arrangement.Center
 ) {
     OutlinedButton(
         modifier = Modifier
             .padding(5.dp)
             .fillMaxWidth(),
-        onClick = { /*TODO*/ },
+        onClick = onClick,
         shape = RoundedCornerShape(20.dp),
         border = BorderStroke(1.dp, borderColor),
         colors = ButtonDefaults.buttonColors(

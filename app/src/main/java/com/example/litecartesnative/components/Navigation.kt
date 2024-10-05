@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.litecartesnative.features.auth.presentation.screens.AuthLoginScreen
+import com.example.litecartesnative.features.auth.presentation.screens.AuthRegisterScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthStartScreen
 
 @Composable
@@ -24,12 +26,16 @@ fun Navigation() {
         composable(
             route = Screen.AuthLoginScreen.route
         ) {
-
+            AuthLoginScreen(
+                navController = navController
+            )
         }
         composable(
             route = Screen.AuthRegisterScreen.route
         ) {
-
+            AuthRegisterScreen(
+                navController = navController
+            )
         }
     }
 }
