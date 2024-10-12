@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.features.auth.presentation.screens.AuthLoginScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthRegisterScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthStartScreen
+import com.example.litecartesnative.ui.constants.Screen
 
 @Composable
 fun Navigation() {

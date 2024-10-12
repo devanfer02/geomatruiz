@@ -1,31 +1,19 @@
 package com.example.litecartesnative.features.auth.presentation.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -36,9 +24,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
-import com.example.litecartesnative.components.Screen
+import com.example.litecartesnative.ui.constants.Screen
 import com.example.litecartesnative.features.auth.presentation.components.AuthTopBar
-import com.example.litecartesnative.features.auth.presentation.components.Button
+import com.example.litecartesnative.components.Button
 import com.example.litecartesnative.features.auth.presentation.components.Input
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
@@ -48,7 +36,11 @@ fun AuthLoginScreen(
     navController: NavController
 ) {
     Scaffold(
-
+        topBar = {
+            AuthTopBar(
+                painter = painterResource(id = R.drawable.login_screen)
+            )
+        }
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -56,9 +48,6 @@ fun AuthLoginScreen(
                 .background(LitecartesColor.Surface)
                 .padding(innerPadding)
         ) {
-            AuthTopBar(
-                painter = painterResource(id = R.drawable.login_screen)
-            )
             Column(
                 modifier = Modifier
                     .padding(
@@ -131,7 +120,10 @@ fun AuthLoginScreen(
                     text = "masuk".uppercase(),
                     borderColor = LitecartesColor.Secondary,
                     color = LitecartesColor.Surface,
-                    backgroundColor = LitecartesColor.Secondary
+                    backgroundColor = LitecartesColor.Secondary,
+                    shadowEnabled = true,
+                    shadowHeight = 55.dp,
+                    shadowColor = LitecartesColor.DarkBrown
                 )
                 Text(
                     text = "atau".uppercase(),

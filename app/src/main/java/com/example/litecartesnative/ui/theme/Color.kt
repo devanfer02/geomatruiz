@@ -15,5 +15,6 @@ object LitecartesColor {
     val Secondary = Color(0xFF8B340D)
     val Tertiary = Color(0xFFFF542E)
     val Surface = Color(0xFFFFDAB7)
+    val DarkBrown = Color(0xFF662500)
 }
 

@@ -14,8 +14,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -26,9 +24,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
-import com.example.litecartesnative.components.Screen
+import com.example.litecartesnative.ui.constants.Screen
 import com.example.litecartesnative.features.auth.presentation.components.AuthTopBar
-import com.example.litecartesnative.features.auth.presentation.components.Button
+import com.example.litecartesnative.components.Button
 import com.example.litecartesnative.features.auth.presentation.components.Input
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
@@ -38,7 +36,12 @@ fun AuthRegisterScreen(
     navController: NavController
 ) {
     Scaffold(
-
+        topBar = {
+            AuthTopBar(
+                painter = painterResource(id = R.drawable.register_screen),
+                contentAlignment = Alignment.TopEnd
+            )
+        }
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -46,10 +49,6 @@ fun AuthRegisterScreen(
                 .background(LitecartesColor.Surface)
                 .padding(innerPadding)
         ) {
-            AuthTopBar(
-                painter = painterResource(id = R.drawable.register_screen),
-                contentAlignment = Alignment.TopEnd
-            )
             Column(
                 modifier = Modifier
                     .padding(
@@ -124,7 +123,10 @@ fun AuthRegisterScreen(
                     text = "masuk".uppercase(),
                     borderColor = LitecartesColor.Secondary,
                     color = LitecartesColor.Surface,
-                    backgroundColor = LitecartesColor.Secondary
+                    backgroundColor = LitecartesColor.Secondary,
+                    shadowEnabled = true,
+                    shadowHeight = 55.dp,
+                    shadowColor = LitecartesColor.DarkBrown
                 )
                 Text(
                     text = "atau".uppercase(),

@@ -1,4 +1,4 @@
-package com.example.litecartesnative.components
+package com.example.litecartesnative.ui.constants
 
 sealed class Screen(
     val route: String
@@ -14,4 +14,5 @@ sealed class Screen(
     object AuthRegisterScreen : Screen(
         "auth_register_screen"
     )
+
 }
