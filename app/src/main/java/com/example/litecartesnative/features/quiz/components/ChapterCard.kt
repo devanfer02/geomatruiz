@@ -1,17 +1,21 @@
 package com.example.litecartesnative.features.quiz.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,7 +37,8 @@ import com.example.litecartesnative.ui.theme.nunitosFontFamily
 @Composable
 fun ChapterCard(
     chapter: Chapter,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {}
 ){
     Box(
         modifier = modifier
@@ -71,16 +76,23 @@ fun ChapterCard(
                     text = chapter.description,
                     color = Color.White,
                     fontFamily = nunitosFontFamily,
-                    fontSize = 12.sp
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.SemiBold
                 )
-                Button(
-                    text = "Yuk Main".uppercase(),
-                    color = LitecartesColor.Secondary,
-                    backgroundColor = LitecartesColor.Surface,
-                    borderColor = LitecartesColor.DarkBrown,
-                    shadowEnabled = true,
-                    shadowColor = LitecartesColor.DarkBrown,
-                )
+                Box(
+                    modifier = Modifier
+
+                ) {
+                    Button(
+                        text = "Yuk Main".uppercase(),
+                        color = LitecartesColor.Secondary,
+                        backgroundColor = LitecartesColor.Surface,
+                        borderColor = LitecartesColor.DarkBrown,
+                        shadowEnabled = true,
+                        shadowColor = LitecartesColor.DarkBrown,
+                        onClick = onClick
+                    )
+                }
             }
             Box(
                 modifier = Modifier

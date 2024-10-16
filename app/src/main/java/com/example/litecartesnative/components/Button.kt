@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.litecartesnative.ui.theme.LitecartesColor
@@ -31,6 +32,7 @@ fun Button(
     color: Color,
     backgroundColor: Color,
     borderColor: Color,
+    modifier: Modifier = Modifier,
     shadowEnabled: Boolean = false,
     shadowColor: Color? = null,
     shadowHeight: Dp = 55.dp,
@@ -41,10 +43,9 @@ fun Button(
     Box {
         if (shadowEnabled) {
             OutlinedButton(
-                modifier = Modifier
+                modifier = modifier
                     .padding(5.dp)
                     .heightIn(min = shadowHeight)
-                    .fillMaxWidth()
                     .shadow(
                         elevation = 8.dp,
                         shape = RoundedCornerShape(20.dp),
@@ -60,7 +61,7 @@ fun Button(
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = horizontalArrangement,
-                    modifier = Modifier.fillMaxWidth() // Make the Row fill the width
+                    modifier = modifier
                 ){
                     if (icon != null) {
                         Image(
@@ -86,9 +87,8 @@ fun Button(
             }
         }
         OutlinedButton(
-            modifier = Modifier
+            modifier = modifier
                 .padding(5.dp)
-                .fillMaxWidth()
                 .shadow(
                     elevation = 8.dp,
                     shape = RoundedCornerShape(20.dp),
@@ -104,7 +104,7 @@ fun Button(
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = horizontalArrangement,
-                modifier = Modifier.fillMaxWidth() // Make the Row fill the width
+                modifier = modifier
             ){
                 if (icon != null) {
                     Image(
@@ -129,4 +129,17 @@ fun Button(
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewButton() {
+    Button(
+        text = "Yuk Main".uppercase(),
+        color = LitecartesColor.Secondary,
+        backgroundColor = LitecartesColor.Surface,
+        borderColor = LitecartesColor.DarkBrown,
+        shadowEnabled = true,
+        shadowColor = LitecartesColor.DarkBrown,
+    )
 }

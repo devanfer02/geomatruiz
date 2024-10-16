@@ -4,10 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,11 +22,14 @@ import com.example.litecartesnative.R
 import com.example.litecartesnative.components.Navbar
 import com.example.litecartesnative.features.quiz.components.LevelButton
 import com.example.litecartesnative.features.quiz.components.ProfileTopBar
+import com.example.litecartesnative.ui.constants.Screen
 
 @Composable
 fun LevelScreen(
     navController: NavController
 ) {
+    val scrollState = rememberScrollState()
+
     Scaffold(
         topBar = {
             ProfileTopBar()
@@ -41,6 +45,9 @@ fun LevelScreen(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxSize()
+                    .verticalScroll(
+                        scrollState
+                    )
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.level_background),
@@ -56,7 +63,14 @@ fun LevelScreen(
                             y = 10.dp
                         )
                 ) {
-                    LevelButton(level = 1)
+                    LevelButton(
+                        level = 1,
+                        onClick = {
+                            navController.navigate(
+                                Screen.QuestionScreen.route
+                            )
+                        }
+                    )
                 }
                 Box(
                     modifier = Modifier

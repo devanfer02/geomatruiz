@@ -123,7 +123,11 @@ fun AuthLoginScreen(
                     backgroundColor = LitecartesColor.Secondary,
                     shadowEnabled = true,
                     shadowHeight = 55.dp,
-                    shadowColor = LitecartesColor.DarkBrown
+                    shadowColor = LitecartesColor.DarkBrown,
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        navController.navigate(Screen.HomeScreen.route)
+                    }
                 )
                 Text(
                     text = "atau".uppercase(),
@@ -142,6 +146,7 @@ fun AuthLoginScreen(
                     borderColor = Color.White,
                     color = Color.Black,
                     backgroundColor = Color.White,
+                    modifier = Modifier.fillMaxWidth(),
                     icon = painterResource(id = R.drawable.google_icon),
                 )
             }

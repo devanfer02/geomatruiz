@@ -22,6 +22,7 @@ import com.example.litecartesnative.features.quiz.components.ProfileTopBar
 import com.example.litecartesnative.components.Navbar
 import com.example.litecartesnative.features.quiz.components.ChapterCard
 import com.example.litecartesnative.features.quiz.domain.model.Chapter
+import com.example.litecartesnative.ui.constants.Screen
 import com.example.litecartesnative.ui.constants.chapters
 import com.example.litecartesnative.ui.theme.LitecartesColor
 
@@ -55,10 +56,16 @@ fun HomeScreen(
                                     horizontal = 10.dp
                                 )
                         ) {
-                            ChapterCard(chapter = chapter)
+                            ChapterCard(
+                                chapter = chapter,
+                                onClick = {
+                                    navController.navigate(
+                                        Screen.LevelScreen.route
+                                    )
+                                }
+                            )
                         }
                         Spacer(modifier = Modifier.padding(5.dp))
-
 
                     }
                 }

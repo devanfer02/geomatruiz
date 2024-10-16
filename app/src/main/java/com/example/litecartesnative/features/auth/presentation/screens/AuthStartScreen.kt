@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -85,7 +86,9 @@ fun AuthStartScreen(
                         navController.navigate(
                             route = Screen.AuthRegisterScreen.route
                         )
-                    }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+
                 )
                 Button(
                     text = "Saya sudah punya akun".uppercase(),
@@ -96,7 +99,8 @@ fun AuthStartScreen(
                         navController.navigate(
                             route = Screen.AuthLoginScreen.route
                         )
-                    }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }
