@@ -26,4 +26,8 @@ sealed class Screen(
     object QuestionScreen : Screen(
         "question_screen"
     )
+
+    object LeaderboardScreen : Screen(
+        "leaderboard_screen"
+    )
 }

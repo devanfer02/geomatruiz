@@ -8,21 +8,15 @@ sealed class NavItem(
     val label: String
 ) {
     object Home : NavItem(
-        "leaderboard",
+        Screen.HomeScreen.route,
         R.drawable.home,
         "home"
     )
 
     object Leaderboard : NavItem(
-        "leaderboard",
+        Screen.LeaderboardScreen.route,
         R.drawable.emoji_events,
         "leaderboard"
-    )
-
-    object Contest : NavItem(
-        "contest",
-        R.drawable.contest,
-        "contest"
     )
 
     object Friends : NavItem(
@@ -38,6 +32,6 @@ sealed class NavItem(
     )
 
     companion object {
-        val items = listOf(Home, Leaderboard, Contest, Friends, Profile)
+        val items = listOf(Home, Leaderboard, Friends, Profile)
     }
 }

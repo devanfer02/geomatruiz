@@ -87,6 +87,7 @@ fun AuthStartScreen(
                             route = Screen.AuthRegisterScreen.route
                         )
                     },
+                    textModifier = Modifier.padding(8.dp),
                     modifier = Modifier.fillMaxWidth(),
 
                 )
@@ -100,6 +101,7 @@ fun AuthStartScreen(
                             route = Screen.AuthLoginScreen.route
                         )
                     },
+                    textModifier = Modifier.padding(8.dp),
                     modifier = Modifier.fillMaxWidth(),
                 )
             }

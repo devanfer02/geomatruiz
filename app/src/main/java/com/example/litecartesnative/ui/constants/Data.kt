@@ -1,6 +1,7 @@
 package com.example.litecartesnative.ui.constants
 
 import com.example.litecartesnative.features.quiz.domain.model.Question
+import com.example.litecartesnative.features.user.domain.model.User
 
 val questionDummy = Question(
     title = "Artificial Intelligence (AI)",
@@ -13,4 +14,57 @@ val questionDummy = Question(
         "Kelemahan dalam mengenali pola"
     ),
     rightIndex = 0
+)
+
+val usersDummy = mutableListOf(
+    User(
+        fullname = "Emily Johnson",
+        handle = "@EmiTheArtist",
+        exp = 2
+    ),
+    User(
+        fullname = "Liam Carter",
+        handle = "@LiamLegoMaster",
+        exp = 3
+    ),
+    User(
+        fullname = "Sophia Nguyen",
+        handle = "@SophiStarReader",
+        exp = 4
+    ),
+    User(
+        fullname = "Jackson White",
+        handle = "@JackWizKid",
+        exp = 3
+    ),
+    User(
+        fullname = "Isabella Martinez",
+        handle = "@BellaBaker",
+        exp = 2
+    ),
+    User(
+        fullname = "Noah Robinson",
+        handle = "@NoahSoccerPro",
+        exp = 5
+    ),
+    User(
+        fullname = "Olivia King",
+        handle = "@OliviaOrigami",
+        exp = 3
+    ),
+    User(
+        fullname = "Mason Brooks",
+        handle = "@MasonTechTinkerer",
+        exp = 4
+    ),
+    User(
+        fullname = "Mia Patel",
+        handle = "@MiaMusicalNotes",
+        exp = 5
+    ),
+    User(
+        fullname = "Ethan Garcia",
+        handle = "@EthanSkateboard",
+        exp = 3
+    )
 )

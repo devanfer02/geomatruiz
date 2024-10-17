@@ -128,6 +128,7 @@ fun AuthRegisterScreen(
                     shadowHeight = 55.dp,
                     shadowColor = LitecartesColor.DarkBrown,
                     modifier = Modifier.fillMaxWidth(),
+                    textModifier = Modifier.padding(8.dp)
                 )
                 Text(
                     text = "atau".uppercase(),
@@ -148,6 +149,7 @@ fun AuthRegisterScreen(
                     backgroundColor = Color.White,
                     icon = painterResource(id = R.drawable.google_icon),
                     modifier = Modifier.fillMaxWidth(),
+                    textModifier = Modifier.padding(8.dp)
                 )
             }
         }

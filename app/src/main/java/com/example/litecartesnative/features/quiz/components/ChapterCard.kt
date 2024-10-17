@@ -50,16 +50,15 @@ fun ChapterCard(
             )
             .clip(RoundedCornerShape(16.dp))
             .background(LitecartesColor.Primary)
-            ,
-
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    horizontal = 10.dp,
-                    vertical = 12.dp
+                    horizontal = 20.dp,
+                    vertical = 10.dp
                 )
+
         ) {
             Column(
                 modifier = Modifier
@@ -77,22 +76,19 @@ fun ChapterCard(
                     color = Color.White,
                     fontFamily = nunitosFontFamily,
                     fontSize = 14.sp,
-                    fontWeight = FontWeight.SemiBold
+                    fontWeight = FontWeight.SemiBold,
+                    lineHeight = 14.sp
                 )
-                Box(
-                    modifier = Modifier
-
-                ) {
-                    Button(
-                        text = "Yuk Main".uppercase(),
-                        color = LitecartesColor.Secondary,
-                        backgroundColor = LitecartesColor.Surface,
-                        borderColor = LitecartesColor.DarkBrown,
-                        shadowEnabled = true,
-                        shadowColor = LitecartesColor.DarkBrown,
-                        onClick = onClick
-                    )
-                }
+                Button(
+                    text = "Yuk Main".uppercase(),
+                    color = LitecartesColor.Secondary,
+                    backgroundColor = LitecartesColor.Surface,
+                    borderColor = LitecartesColor.DarkBrown,
+                    shadowEnabled = true,
+                    shadowColor = LitecartesColor.DarkBrown,
+                    onClick = onClick,
+                    shadowHeight = 0.dp
+                )
             }
             Box(
                 modifier = Modifier

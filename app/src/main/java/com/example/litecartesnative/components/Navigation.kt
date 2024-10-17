@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.features.auth.presentation.screens.AuthLoginScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthRegisterScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthStartScreen
+import com.example.litecartesnative.features.leaderboard.presentation.screens.LeaderboardScreen
 import com.example.litecartesnative.features.quiz.presentation.HomeScreen
 import com.example.litecartesnative.features.quiz.presentation.LevelScreen
 import com.example.litecartesnative.features.quiz.presentation.QuestionScreen
@@ -56,6 +57,11 @@ fun Navigation() {
             route = Screen.QuestionScreen.route
         ) {
             QuestionScreen(question = questionDummy)
+        }
+        composable(
+            route = Screen.LeaderboardScreen.route
+        ) {
+            LeaderboardScreen(navController = navController)
         }
     }
 }

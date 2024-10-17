@@ -38,6 +38,7 @@ fun Button(
     shadowHeight: Dp = 55.dp,
     icon: Painter? = null,
     onClick: () -> Unit = {},
+    textModifier: Modifier = Modifier,
     horizontalArrangement: Arrangement.Horizontal = Arrangement.Center
 ) {
     Box {
@@ -76,8 +77,7 @@ fun Button(
                         )
                     }
                     Text(
-                        modifier = Modifier
-                            .padding(vertical = 8.dp),
+                        modifier = textModifier,
                         text = text,
                         color = color,
                         fontWeight = FontWeight.ExtraBold,
@@ -119,8 +119,7 @@ fun Button(
                     )
                 }
                 Text(
-                    modifier = Modifier
-                        .padding(vertical = 8.dp),
+                    modifier = textModifier,
                     text = text,
                     color = color,
                     fontWeight = FontWeight.ExtraBold,

@@ -127,7 +127,8 @@ fun AuthLoginScreen(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
                         navController.navigate(Screen.HomeScreen.route)
-                    }
+                    },
+                    textModifier = Modifier.padding(8.dp)
                 )
                 Text(
                     text = "atau".uppercase(),
@@ -148,6 +149,7 @@ fun AuthLoginScreen(
                     backgroundColor = Color.White,
                     modifier = Modifier.fillMaxWidth(),
                     icon = painterResource(id = R.drawable.google_icon),
+                    textModifier = Modifier.padding(8.dp)
                 )
             }
         }
