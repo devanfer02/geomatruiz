@@ -1,4 +1,4 @@
-package com.example.litecartesnative.features.quiz.presentation
+package com.example.litecartesnative.features.quiz.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -11,17 +11,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.litecartesnative.features.quiz.components.ProfileTopBar
+import com.example.litecartesnative.features.quiz.presentation.components.ProfileTopBar
 import com.example.litecartesnative.components.Navbar
-import com.example.litecartesnative.features.quiz.components.ChapterCard
-import com.example.litecartesnative.features.quiz.domain.model.Chapter
+import com.example.litecartesnative.features.quiz.presentation.components.ChapterCard
 import com.example.litecartesnative.ui.constants.Screen
 import com.example.litecartesnative.ui.constants.chapters
 import com.example.litecartesnative.ui.theme.LitecartesColor

@@ -1,10 +1,9 @@
-package com.example.litecartesnative.features.quiz.presentation
+package com.example.litecartesnative.features.quiz.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -24,11 +23,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.litecartesnative.features.auth.presentation.components.ProgressBar
-import com.example.litecartesnative.features.quiz.components.OptionButton
+import com.example.litecartesnative.features.quiz.presentation.components.OptionButton
 import com.example.litecartesnative.features.quiz.domain.model.Question
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
-import java.nio.file.WatchEvent
 
 @Composable
 fun QuestionScreen(question: Question) {

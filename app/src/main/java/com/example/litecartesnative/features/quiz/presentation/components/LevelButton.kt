@@ -1,4 +1,4 @@
-package com.example.litecartesnative.features.quiz.components
+package com.example.litecartesnative.features.quiz.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

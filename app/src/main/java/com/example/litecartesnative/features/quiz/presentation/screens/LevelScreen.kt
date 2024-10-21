@@ -1,4 +1,4 @@
-package com.example.litecartesnative.features.quiz.presentation
+package com.example.litecartesnative.features.quiz.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -20,8 +20,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
 import com.example.litecartesnative.components.Navbar
-import com.example.litecartesnative.features.quiz.components.LevelButton
-import com.example.litecartesnative.features.quiz.components.ProfileTopBar
+import com.example.litecartesnative.features.quiz.presentation.components.LevelButton
+import com.example.litecartesnative.features.quiz.presentation.components.ProfileTopBar
 import com.example.litecartesnative.ui.constants.Screen
 
 @Composable

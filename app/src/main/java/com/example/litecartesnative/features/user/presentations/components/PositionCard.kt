@@ -1,4 +1,4 @@
-package com.example.litecartesnative.features.leaderboard.components
+package com.example.litecartesnative.features.user.presentations.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

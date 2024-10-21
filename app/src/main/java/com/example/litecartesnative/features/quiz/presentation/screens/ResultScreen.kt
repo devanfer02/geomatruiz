@@ -1,4 +1,4 @@
-package com.example.litecartesnative.features.quiz.presentation
+package com.example.litecartesnative.features.quiz.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

@@ -30,4 +30,12 @@ sealed class Screen(
     object LeaderboardScreen : Screen(
         "leaderboard_screen"
     )
+
+    object FriendScreen : Screen(
+        "friend_screen"
+    )
+
+    object ProfileScreen : Screen(
+        "profile_screen"
+    )
 }

@@ -47,6 +47,12 @@ fun Navbar(
             val currentRoute = navBackStackEntry?.destination?.route
 
             NavItem.items.forEach { item ->
+                val icon = if(currentRoute == item.route) {
+                    item.activeIdIcon
+                } else {
+                    item.idIcon
+                }
+
                 BottomNavigationItem(
                     selected = currentRoute == item.route,
                     onClick = {
@@ -56,7 +62,9 @@ fun Navbar(
                         Image(
                             modifier = Modifier
                                 .size(40.dp),
-                            painter = painterResource(id = item.idIcon),
+                            painter = painterResource(
+                                id = icon
+                            ),
                             contentDescription = item.label
                         )
                     },

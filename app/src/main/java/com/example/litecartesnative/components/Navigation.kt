@@ -7,10 +7,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.features.auth.presentation.screens.AuthLoginScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthRegisterScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthStartScreen
-import com.example.litecartesnative.features.leaderboard.presentation.screens.LeaderboardScreen
-import com.example.litecartesnative.features.quiz.presentation.HomeScreen
-import com.example.litecartesnative.features.quiz.presentation.LevelScreen
-import com.example.litecartesnative.features.quiz.presentation.QuestionScreen
+import com.example.litecartesnative.features.user.presentations.screens.LeaderboardScreen
+import com.example.litecartesnative.features.quiz.presentation.screens.HomeScreen
+import com.example.litecartesnative.features.quiz.presentation.screens.LevelScreen
+import com.example.litecartesnative.features.quiz.presentation.screens.QuestionScreen
+import com.example.litecartesnative.features.user.presentations.screens.FriendScreen
+import com.example.litecartesnative.features.user.presentations.screens.ProfileScreen
 import com.example.litecartesnative.ui.constants.Screen
 import com.example.litecartesnative.ui.constants.questionDummy
 
@@ -62,6 +64,16 @@ fun Navigation() {
             route = Screen.LeaderboardScreen.route
         ) {
             LeaderboardScreen(navController = navController)
+        }
+        composable(
+            route = Screen.ProfileScreen.route
+        ) {
+            ProfileScreen(navController = navController)
+        }
+        composable(
+            route = Screen.FriendScreen.route
+        ) {
+            FriendScreen(navController = navController)
         }
     }
 }
