@@ -3,6 +3,7 @@ package com.example.litecartesnative.features.quiz.presentation.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,6 +16,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.litecartesnative.R
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
@@ -34,7 +36,7 @@ fun BoxPoints(
             )
             .background(LitecartesColor.Surface)
             .padding(
-                horizontal = 4.dp,
+                horizontal = 8.dp,
                 vertical = 2.dp
             )
 ,
@@ -46,11 +48,16 @@ fun BoxPoints(
             modifier = Modifier
                 .size(18.dp)
         )
+        Spacer(
+            modifier = Modifier
+                .padding(3.dp)
+        )
         Text(
             text = "$points",
             fontFamily = nunitosFontFamily,
             color = LitecartesColor.Secondary,
             fontWeight = FontWeight.SemiBold,
+            fontSize = 10.sp
         )
     }
 }

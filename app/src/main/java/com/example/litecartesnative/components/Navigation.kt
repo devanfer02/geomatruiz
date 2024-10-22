@@ -58,7 +58,10 @@ fun Navigation() {
         composable(
             route = Screen.QuestionScreen.route
         ) {
-            QuestionScreen(question = questionDummy)
+            QuestionScreen(
+                question = questionDummy,
+                navController = navController
+            )
         }
         composable(
             route = Screen.LeaderboardScreen.route

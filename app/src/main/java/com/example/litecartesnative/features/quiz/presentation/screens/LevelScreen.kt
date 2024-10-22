@@ -23,6 +23,7 @@ import com.example.litecartesnative.components.Navbar
 import com.example.litecartesnative.features.quiz.presentation.components.LevelButton
 import com.example.litecartesnative.features.quiz.presentation.components.ProfileTopBar
 import com.example.litecartesnative.ui.constants.Screen
+import com.example.litecartesnative.ui.theme.LitecartesColor
 
 @Composable
 fun LevelScreen(
@@ -31,9 +32,6 @@ fun LevelScreen(
     val scrollState = rememberScrollState()
 
     Scaffold(
-        topBar = {
-            ProfileTopBar()
-        }
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -41,6 +39,9 @@ fun LevelScreen(
                 .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
+            ProfileTopBar(
+                backgroundColor = LitecartesColor.DarkerSurface
+            )
             Box(
                 modifier = Modifier
                     .weight(1f)

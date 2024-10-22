@@ -23,14 +23,14 @@ sealed class NavItem(
     )
 
     object Friends : NavItem(
-        "friends",
+        Screen.FriendScreen.route,
         R.drawable.add_friends,
         R.drawable.active_add_friends,
         "friends"
     )
 
     object Profile : NavItem(
-        "profile",
+        Screen.ProfileScreen.route,
         R.drawable.profile,
         R.drawable.active_account_circle,
         "profile"

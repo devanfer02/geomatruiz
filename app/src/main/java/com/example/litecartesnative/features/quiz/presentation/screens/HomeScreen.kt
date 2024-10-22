@@ -30,7 +30,7 @@ fun HomeScreen(
 ) {
     Scaffold(
         topBar = {
-            ProfileTopBar()
+
         }
     ) { innerPadding ->
         Column(
@@ -39,6 +39,7 @@ fun HomeScreen(
                 .padding(innerPadding),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
+            ProfileTopBar()
             Box(
                 modifier = Modifier
                     .fillMaxWidth()

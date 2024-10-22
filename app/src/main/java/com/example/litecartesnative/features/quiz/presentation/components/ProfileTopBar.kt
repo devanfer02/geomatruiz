@@ -37,11 +37,13 @@ import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
 @Composable
 fun ProfileTopBar(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    backgroundColor: Color = LitecartesColor.Surface
 ) {
     Box(
         modifier = modifier
             .fillMaxWidth()
+            .background(backgroundColor)
             .clip(
                 RoundedCornerShape(
                     bottomStart = 24.dp,
@@ -69,14 +71,14 @@ fun ProfileTopBar(
                     painter = painterResource(id = R.drawable.template_profile),
                     contentDescription = "profile image",
                     modifier = Modifier
-                        .height(80.dp)
+                        .height(70.dp)
                         .aspectRatio(1f)
                 )
             }
-            Spacer(modifier = Modifier.padding(8.dp))
+            Spacer(modifier = Modifier.padding(4.dp))
             Column(
                 verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
+
                 modifier = Modifier
             ) {
                 Text(
@@ -93,14 +95,17 @@ fun ProfileTopBar(
                     fontWeight = FontWeight.SemiBold,
                 )
             }
-            Spacer(modifier = Modifier.padding(8.dp))
+            Spacer(modifier = Modifier.padding(4.dp))
             Column {
                 Row(
                     modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     BoxPoints(
                         imageId = R.drawable.diamon,
-                        points = "250"
+                        points = "250",
+
                     )
                     Spacer(modifier = Modifier.padding(6.dp))
                     BoxPoints(
@@ -111,23 +116,24 @@ fun ProfileTopBar(
                 Spacer(modifier = Modifier.padding(2.dp))
                 Box(
                     modifier = Modifier
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(LitecartesColor.Surface)
-                        .fillMaxWidth()
-                        .padding(2.dp)
                         .shadow(
                             elevation = 8.dp,
                             shape = RoundedCornerShape(20.dp),
                             clip = false
-                        ),
+                        )
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(LitecartesColor.Surface)
+                        .fillMaxWidth()
+                        .padding(2.dp)
+                        ,
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
                         text = "Voyager",
                         fontFamily = nunitosFontFamily,
                         color = LitecartesColor.Secondary,
-                        fontWeight = FontWeight.SemiBold,
-
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp
                     )
                 }
             }

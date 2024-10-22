@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -38,11 +39,19 @@ fun ResultScreen() {
         ) {
             Column(
                 modifier = Modifier
+                    .shadow(
+                        elevation = 10.dp,
+                        shape = RoundedCornerShape(12.dp),
+                        clip = false
+                    )
                     .clip(
                         RoundedCornerShape(12.dp)
                     )
                     .background(LitecartesColor.Primary)
-                    .padding(10.dp),
+                    .padding(
+                        vertical = 40.dp,
+                        horizontal = 20.dp
+                    ),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
@@ -59,7 +68,7 @@ fun ResultScreen() {
                         .size(300.dp)
                 )
                 Row {
-                    Box(
+                    Column(
                         modifier = Modifier
                             .background(LitecartesColor.Surface)
                             .padding(
@@ -67,6 +76,10 @@ fun ResultScreen() {
                                 vertical = 10.dp
                             )
                     ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.icon_benar),
+                            contentDescription = "right icon"
+                        )
                         Text(
                             text = "5",
                             color = LitecartesColor.Primary,
@@ -78,7 +91,7 @@ fun ResultScreen() {
                         modifier = Modifier
                             .padding(10.dp)
                     )
-                    Box(
+                    Column(
                         modifier = Modifier
                             .background(LitecartesColor.Surface)
                             .padding(
@@ -86,6 +99,10 @@ fun ResultScreen() {
                                 vertical = 10.dp
                             ),
                     ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.icon_benar),
+                            contentDescription = "right icon"
+                        )
                         Text(
                             text = "0",
                             color = LitecartesColor.Primary,

@@ -49,7 +49,7 @@ fun ChapterCard(
                 clip = false
             )
             .clip(RoundedCornerShape(16.dp))
-            .background(LitecartesColor.Primary)
+            .background(LitecartesColor.DarkerSurface)
     ) {
         Row(
             modifier = Modifier
@@ -66,14 +66,14 @@ fun ChapterCard(
             ) {
                 Text(
                     text = chapter.title,
-                    color = Color.White,
+                    color = LitecartesColor.Secondary,
                     fontFamily = nunitosFontFamily,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.ExtraBold,
                     fontSize = 24.sp
                 )
                 Text(
                     text = chapter.description,
-                    color = Color.White,
+                    color = LitecartesColor.Secondary,
                     fontFamily = nunitosFontFamily,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold,
@@ -87,7 +87,7 @@ fun ChapterCard(
                     shadowEnabled = true,
                     shadowColor = LitecartesColor.DarkBrown,
                     onClick = onClick,
-                    shadowHeight = 0.dp
+                    shadowHeight = 5.dp
                 )
             }
             Box(
