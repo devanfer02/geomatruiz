@@ -130,7 +130,10 @@ fun AuthRegisterScreen(
                     shadowHeight = 55.dp,
                     shadowColor = LitecartesColor.DarkBrown,
                     modifier = Modifier.fillMaxWidth(),
-                    textModifier = Modifier.padding(8.dp)
+                    textModifier = Modifier.padding(8.dp),
+                    onClick = {
+                        navController.navigate(Screen.QuickCheckScren.route)
+                    }
                 )
                 Text(
                     text = "atau".uppercase(),

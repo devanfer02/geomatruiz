@@ -7,6 +7,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.features.auth.presentation.screens.AuthLoginScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthRegisterScreen
 import com.example.litecartesnative.features.auth.presentation.screens.AuthStartScreen
+import com.example.litecartesnative.features.pretest.domain.model.Pretest
+import com.example.litecartesnative.features.pretest.presentation.screens.PretestScreen
+import com.example.litecartesnative.features.pretest.presentation.screens.QuickCheckScreen
 import com.example.litecartesnative.features.user.presentations.screens.LeaderboardScreen
 import com.example.litecartesnative.features.quiz.presentation.screens.HomeScreen
 import com.example.litecartesnative.features.quiz.presentation.screens.LevelScreen
@@ -43,6 +46,29 @@ fun Navigation() {
         ) {
             AuthRegisterScreen(
                 navController = navController
+            )
+        }
+        composable(
+            route = Screen.QuickCheckScren.route
+        ) {
+            QuickCheckScreen(
+                navController = navController
+            )
+        }
+        composable(
+            route = Screen.PretestScreen.route
+        ) {
+            PretestScreen(
+                navController = navController,
+                pretest = Pretest(
+                    question = "Bagaimana tingkat kenyamanan kamu dalam memahami teks bacaan sehari-hari",
+                    options = mutableListOf(
+                        "Pemula tapi semangat",
+                        "Oke lah, cukup nyamana",
+                        "Sudah bisa sih!",
+                        "Ahli banget nih"
+                    )
+                )
             )
         }
         composable(

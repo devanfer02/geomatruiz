@@ -38,4 +38,12 @@ sealed class Screen(
     object ProfileScreen : Screen(
         "profile_screen"
     )
+
+    object QuickCheckScren : Screen(
+        "quickcheck_screen"
+    )
+
+    object PretestScreen : Screen (
+        "pretest_screen"
+    )
 }
