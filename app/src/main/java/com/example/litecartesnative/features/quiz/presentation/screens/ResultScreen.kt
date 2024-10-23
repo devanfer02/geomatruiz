@@ -2,11 +2,13 @@ package com.example.litecartesnative.features.quiz.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -24,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.litecartesnative.R
+import com.example.litecartesnative.components.Button
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
@@ -67,18 +71,25 @@ fun ResultScreen() {
                     modifier = Modifier
                         .size(300.dp)
                 )
-                Row {
+                Row(
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    modifier = Modifier
+                ) {
                     Column(
                         modifier = Modifier
+                            .clip(RoundedCornerShape(20.dp))
                             .background(LitecartesColor.Surface)
                             .padding(
                                 horizontal = 30.dp,
                                 vertical = 10.dp
-                            )
+                            ),
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Image(
                             painter = painterResource(id = R.drawable.icon_benar),
-                            contentDescription = "right icon"
+                            contentDescription = "right icon",
+                            modifier = Modifier
+                                .size(35.dp)
                         )
                         Text(
                             text = "5",
@@ -89,19 +100,23 @@ fun ResultScreen() {
                     }
                     Spacer(
                         modifier = Modifier
-                            .padding(10.dp)
+                            .padding(24.dp)
                     )
                     Column(
                         modifier = Modifier
+                            .clip(RoundedCornerShape(20.dp))
                             .background(LitecartesColor.Surface)
                             .padding(
                                 horizontal = 30.dp,
                                 vertical = 10.dp
                             ),
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.icon_benar),
-                            contentDescription = "right icon"
+                            painter = painterResource(id = R.drawable.icon_salah),
+                            contentDescription = "right icon",
+                            modifier = Modifier
+                                .size(35.dp)
                         )
                         Text(
                             text = "0",
@@ -111,19 +126,53 @@ fun ResultScreen() {
                         )
                     }
                 }
-                Box(
+                Spacer(
                     modifier = Modifier
+                        .padding(10.dp)
+                )
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(14.dp))
                         .background(LitecartesColor.Surface)
-                    ,
+                        .padding(
+                            vertical = 10.dp,
+                            horizontal = 14.dp
+                        ),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Yeay kamu mendapatkan 5 Point",
+                        text = "Yeay kamu mendapatkan ",
+                        color = LitecartesColor.Secondary,
+                        fontSize = 16.sp,
+                        textAlign = TextAlign.Center
+                    )
+                    Text(
+                        text = " +15 ",
                         color = LitecartesColor.Primary,
-                        fontSize = 20.sp,
+                        fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center
                     )
+                    Image(
+                        painter = painterResource(id = R.drawable.diamon),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .size(20.dp)
+                    )
                 }
+                Spacer(modifier = Modifier.padding(5.dp))
+                Button(
+                    text = "Lanjutkan",
+                    borderColor = LitecartesColor.Secondary,
+                    color = LitecartesColor.Surface,
+                    backgroundColor = LitecartesColor.Secondary,
+                    textModifier = Modifier.padding(8.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            horizontal = 32.dp
+                        )
+                )
             }
         }
     }
