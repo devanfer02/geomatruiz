@@ -78,7 +78,7 @@ fun LeaderboardScreen(
                         text = "Leaderboard",
                         fontFamily = nunitosFontFamily,
                         fontWeight = FontWeight.ExtraBold,
-                        fontSize = 32.sp,
+                        fontSize = 28.sp,
                         color = Color.White
                     )
                     Spacer(modifier = Modifier.padding(4.dp))
@@ -100,7 +100,7 @@ fun LeaderboardScreen(
                             color = Color.White,
                             modifier = Modifier
                                 .padding(
-                                    horizontal = 30.dp
+                                    horizontal = 15.dp
                                 ),
                             fontFamily = nunitosFontFamily,
                             fontWeight = FontWeight.Bold
@@ -110,7 +110,7 @@ fun LeaderboardScreen(
                             color = Color.White,
                             modifier = Modifier
                                 .padding(
-                                    horizontal = 30.dp
+                                    horizontal = 15.dp
                                 ),
                             fontFamily = nunitosFontFamily,
                             fontWeight = FontWeight.Bold
@@ -119,7 +119,7 @@ fun LeaderboardScreen(
                             text = "Sekolah",
                             modifier = Modifier
                                 .padding(
-                                    horizontal = 30.dp
+                                    horizontal = 15.dp
                                 ),
                             color = Color.White,
                             fontFamily = nunitosFontFamily,

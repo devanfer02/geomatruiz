@@ -55,7 +55,7 @@ fun PretestScreen(
                 )
                 .fillMaxSize()
         ) {
-            Spacer(modifier = Modifier.padding(20.dp))
+            Spacer(modifier = Modifier.padding(5.dp))
             Row(
                 modifier = Modifier
                     .fillMaxWidth()

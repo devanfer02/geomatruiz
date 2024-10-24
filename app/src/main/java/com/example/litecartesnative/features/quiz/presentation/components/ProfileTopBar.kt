@@ -51,7 +51,10 @@ fun ProfileTopBar(
                 )
             )
             .background(LitecartesColor.Secondary)
-            .padding(18.dp)
+            .padding(
+                vertical = 20.dp,
+                horizontal = 18.dp
+            )
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
@@ -71,7 +74,7 @@ fun ProfileTopBar(
                     painter = painterResource(id = R.drawable.template_profile),
                     contentDescription = "profile image",
                     modifier = Modifier
-                        .height(70.dp)
+                        .height(55.dp)
                         .aspectRatio(1f)
                 )
             }
@@ -86,17 +89,23 @@ fun ProfileTopBar(
                     fontFamily = nunitosFontFamily,
                     color = LitecartesColor.Surface,
                     fontWeight = FontWeight.Bold,
-                    fontSize =18.sp
+                    fontSize = 18.sp
                 )
                 Text(
                     text = "SMAN 1 Kota Bogor",
                     fontFamily = nunitosFontFamily,
                     color = LitecartesColor.Surface,
                     fontWeight = FontWeight.SemiBold,
+                    fontSize = 10.sp
                 )
             }
             Spacer(modifier = Modifier.padding(4.dp))
-            Column {
+            Column(
+                modifier = Modifier
+                    .padding(
+                        horizontal = 12.dp
+                    )
+            ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth(),
@@ -105,9 +114,8 @@ fun ProfileTopBar(
                     BoxPoints(
                         imageId = R.drawable.diamon,
                         points = "250",
-
                     )
-                    Spacer(modifier = Modifier.padding(6.dp))
+                    
                     BoxPoints(
                         imageId = R.drawable.lightning,
                         points =  "150"

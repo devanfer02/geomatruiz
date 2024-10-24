@@ -44,7 +44,7 @@ fun ProgressBar(
             .background(LitecartesColor.Surface)
             .padding(
                 horizontal = 20.dp,
-                vertical = 10.dp
+                vertical = 40.dp
             ),
         verticalAlignment = Alignment.CenterVertically
     ) {

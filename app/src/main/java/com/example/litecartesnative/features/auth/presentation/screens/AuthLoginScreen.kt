@@ -89,7 +89,7 @@ fun AuthLoginScreen(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ){
                     Text(
-                        text = "Have an account? Register",
+                        text = "Register",
                         textAlign = TextAlign.Start,
                         color = LitecartesColor.Secondary,
                         fontFamily = nunitosFontFamily,

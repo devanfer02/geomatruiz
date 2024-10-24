@@ -65,7 +65,7 @@ fun Top3Profile(
         text = "${user.exp} XP",
         fontFamily = nunitosFontFamily,
         color = Color.White,
-        fontSize = 20.sp,
+        fontSize = 16.sp,
         fontWeight = FontWeight.ExtraBold
     )
 }

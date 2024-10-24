@@ -32,7 +32,7 @@ fun Navbar(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.Transparent)
+            .background(LitecartesColor.Surface)
     ) {
         BottomNavigation(
             backgroundColor = LitecartesColor.Primary,

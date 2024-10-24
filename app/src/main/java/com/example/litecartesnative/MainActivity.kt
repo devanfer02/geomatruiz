@@ -20,8 +20,8 @@ import com.example.litecartesnative.ui.theme.nunitosFontFamily
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_LitecartesNative)
         enableEdgeToEdge()
-//        installSplashScreen()
         setContent {
             LitecartesNativeTheme {
                 Navigation()

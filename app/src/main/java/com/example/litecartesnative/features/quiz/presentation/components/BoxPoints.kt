@@ -28,7 +28,7 @@ fun BoxPoints(
 ) {
     Row(
         modifier = Modifier
-            .clip(RoundedCornerShape(20.dp))
+            .clip(RoundedCornerShape(12.dp))
             .shadow(
                 elevation = 8.dp,
                 clip = false,
