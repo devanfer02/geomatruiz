@@ -27,15 +27,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.litecartesnative.constants.pretestsData
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
 @Composable
 fun ProgressBar(
-    navController: NavController
+    navController: NavController,
+    current: Int
 ) {
     var progress by remember {
-        mutableStateOf(0.50f)
+        mutableStateOf(current.toFloat() / pretestsData.size.toFloat())
     }
 
     Row(
@@ -69,7 +71,7 @@ fun ProgressBar(
         }
         Spacer(modifier = Modifier.padding(10.dp))
         Text(
-            text = "1/4",
+            text = "${current}/${pretestsData.size}",
             fontFamily = nunitosFontFamily,
             fontWeight = FontWeight.Bold,
             color = LitecartesColor.DarkBrown
@@ -80,5 +82,8 @@ fun ProgressBar(
 @Preview
 @Composable
 fun PreviewProgressBar() {
-    ProgressBar(navController = rememberNavController())
+    ProgressBar(
+        navController = rememberNavController(),
+        1
+    )
 }

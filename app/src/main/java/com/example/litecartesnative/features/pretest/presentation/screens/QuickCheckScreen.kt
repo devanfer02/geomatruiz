@@ -31,7 +31,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
 import com.example.litecartesnative.components.Button
 import com.example.litecartesnative.features.pretest.presentation.components.PretestButton
-import com.example.litecartesnative.ui.constants.Screen
+import com.example.litecartesnative.constants.Screen
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
@@ -73,12 +73,12 @@ fun QuickCheckScreen(
                             )
                         )
                         .background(LitecartesColor.Primary)
-                        .padding(vertical = 20.dp)
+                        .padding(vertical = 40.dp)
                         .fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "Literasi Quickcheck".uppercase(),
+                        text = "Tes Penempatan".uppercase(),
                         fontFamily = nunitosFontFamily,
                         color = Color.White,
                         fontWeight = FontWeight.ExtraBold,
@@ -89,11 +89,15 @@ fun QuickCheckScreen(
                             .padding(10.dp)
                     )
                     Text(
-                        text = "Sebelum kita mulai petualangan literasi,\njawab 4 pertanyaan cepat untuk\nmenentukan level literasi kamu",
+                        text = "Sebelum kita mulai petualangan yang seru, jawab 4 pertanyaan singkat berikut untuk menentukan level pengetahuan kamu tentang bangun datar dan bangun ruang",
                         textAlign = TextAlign.Center,
                         color = Color.White,
                         fontFamily = nunitosFontFamily,
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier
+                            .padding(
+                                horizontal = 50.dp
+                            )
                     )
                     Spacer(
                         modifier = Modifier
@@ -116,7 +120,7 @@ fun QuickCheckScreen(
                             modifier = Modifier.fillMaxWidth(),
                             textModifier = Modifier.padding(8.dp),
                             onClick = {
-                                navController.navigate(Screen.PretestScreen.route)
+                                navController.navigate("${Screen.PretestScreen.route}/${1}")
                             }
                         )
                     }

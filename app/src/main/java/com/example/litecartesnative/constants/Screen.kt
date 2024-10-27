@@ -1,4 +1,4 @@
-package com.example.litecartesnative.ui.constants
+package com.example.litecartesnative.constants
 
 sealed class Screen(
     val route: String
@@ -43,7 +43,11 @@ sealed class Screen(
         "quickcheck_screen"
     )
 
-    object PretestScreen : Screen (
+    object PretestScreen : Screen(
         "pretest_screen"
+    )
+
+    object ResultScreen : Screen(
+        "result_screen"
     )
 }

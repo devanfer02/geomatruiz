@@ -26,13 +26,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
 import com.example.litecartesnative.components.Button
+import com.example.litecartesnative.constants.Screen
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
 @Composable
-fun ResultScreen() {
+fun ResultScreen(
+    navController: NavController,
+    chapterId: Int
+) {
     Scaffold { innerPadding ->
         Box(
             modifier = Modifier
@@ -171,7 +177,12 @@ fun ResultScreen() {
                         .fillMaxWidth()
                         .padding(
                             horizontal = 32.dp
+                        ),
+                    onClick = {
+                        navController.navigate(
+                            "${Screen.LevelScreen.route}/${chapterId}"
                         )
+                    }
                 )
             }
         }
@@ -181,5 +192,8 @@ fun ResultScreen() {
 @Preview
 @Composable
 fun PreviewResultScreen() {
-    ResultScreen()
+    ResultScreen(
+        navController = rememberNavController(),
+        chapterId = 0
+    )
 }

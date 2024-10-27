@@ -22,7 +22,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
-import com.example.litecartesnative.ui.constants.NavItem
+import com.example.litecartesnative.constants.NavItem
 import com.example.litecartesnative.ui.theme.LitecartesColor
 
 @Composable

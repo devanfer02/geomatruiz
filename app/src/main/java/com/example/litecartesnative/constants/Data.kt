@@ -1,4 +1,4 @@
-package com.example.litecartesnative.ui.constants
+package com.example.litecartesnative.constants
 
 import com.example.litecartesnative.features.quiz.domain.model.Question
 import com.example.litecartesnative.features.user.domain.model.User
@@ -13,7 +13,7 @@ val questionDummy = Question(
         "Ketergantungan pada manusia",
         "Kelemahan dalam mengenali pola"
     ),
-    rightIndex = 0
+    answer = "Kelemahan dalam mengenali pola"
 )
 
 val usersDummy = mutableListOf(

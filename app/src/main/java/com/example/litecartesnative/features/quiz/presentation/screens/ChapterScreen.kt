@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,12 +22,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.features.quiz.presentation.components.ProfileTopBar
 import com.example.litecartesnative.components.Navbar
 import com.example.litecartesnative.features.quiz.presentation.components.ChapterCard
-import com.example.litecartesnative.ui.constants.Screen
-import com.example.litecartesnative.ui.constants.chapters
+import com.example.litecartesnative.constants.Screen
+import com.example.litecartesnative.constants.chaptersData
 import com.example.litecartesnative.ui.theme.LitecartesColor
 
 @Composable
-fun HomeScreen(
+fun ChapterScreen(
     navController: NavController
 ) {
     Scaffold(
@@ -48,7 +49,7 @@ fun HomeScreen(
                     .background(LitecartesColor.Surface)
             ) {
                 LazyColumn {
-                    items(chapters) { chapter ->
+                    itemsIndexed(chaptersData) { index, chapter ->
                         Spacer(modifier = Modifier.padding(5.dp))
                         Box(
                             modifier = Modifier
@@ -60,7 +61,7 @@ fun HomeScreen(
                                 chapter = chapter,
                                 onClick = {
                                     navController.navigate(
-                                        Screen.LevelScreen.route
+                                        "${Screen.LevelScreen.route}/${index}"
                                     )
                                 }
                             )
@@ -77,8 +78,8 @@ fun HomeScreen(
 
 @Preview
 @Composable
-fun PreviewHomeScreen() {
-    HomeScreen(
+fun PreviewChapterScreen() {
+    ChapterScreen(
         navController = rememberNavController()
     )
 }

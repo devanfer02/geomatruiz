@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,17 +32,23 @@ import com.example.litecartesnative.R
 import com.example.litecartesnative.features.pretest.domain.model.Pretest
 import com.example.litecartesnative.features.pretest.presentation.components.PretestButton
 import com.example.litecartesnative.features.pretest.presentation.components.ProgressBar
-import com.example.litecartesnative.ui.constants.Screen
+import com.example.litecartesnative.constants.Screen
+import com.example.litecartesnative.constants.pretestsData
 import com.example.litecartesnative.ui.theme.LitecartesColor
 
 @Composable
 fun PretestScreen(
     navController: NavController,
-    pretest: Pretest
+    pretestId: Int
 ) {
+    val pretest = pretestsData[pretestId - 1]
+
     Scaffold(
         topBar = {
-            ProgressBar(navController = navController)
+            ProgressBar(
+                navController = navController,
+                current = pretestId
+            )
         },
         modifier = Modifier
             .systemBarsPadding()
@@ -56,19 +63,24 @@ fun PretestScreen(
                 .fillMaxSize()
         ) {
             Spacer(modifier = Modifier.padding(5.dp))
-            Row(
+            Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(20.dp))
-                    .background(LitecartesColor.Primary),
-                verticalAlignment = Alignment.CenterVertically
+                    .background(LitecartesColor.Primary)
+                    .padding(
+                        20.dp
+                    ),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.tanya),
-                    contentDescription = "",
-                    modifier = Modifier
-                        .size(150.dp)
-                )
+                if (pretest.imageId != null) {
+                    Image(
+                        painter = painterResource(id = pretest.imageId),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .size(150.dp)
+                    )
+                }
                 Text(
                     text = pretest.question,
                     textAlign = TextAlign.Center,
@@ -89,7 +101,15 @@ fun PretestScreen(
                 backgroundColor = LitecartesColor.Secondary,
                 textColor = LitecartesColor.Surface,
                 onClick = {
-                    navController.navigate(Screen.HomeScreen.route)
+                    val route = if (pretestId >= pretestsData.size) {
+                        "${Screen.HomeScreen.route}"
+                    } else {
+                        "${Screen.PretestScreen.route}/${pretestId+1}"
+                    }
+
+                    navController.navigate(
+                        route
+                    )
                 }
             )
         }
@@ -101,14 +121,6 @@ fun PretestScreen(
 fun PreviewPretestScreen() {
     PretestScreen(
         navController = rememberNavController(),
-        pretest = Pretest(
-            question = "Bagaimana tingkat kenyamanan kamu dalam memahami teks bacaan sehari-hari",
-            options = mutableListOf(
-                "Pemula tapi semangat",
-                "Oke lah, cukup nyamana",
-                "Sudah bisa sih!",
-                "Ahli banget nih"
-            )
-        )
+        pretestId = 1
     )
 }

@@ -30,7 +30,7 @@ import com.example.litecartesnative.components.Navbar
 import com.example.litecartesnative.features.user.presentations.components.PositionCard
 import com.example.litecartesnative.features.user.presentations.components.Top3Profile
 import com.example.litecartesnative.features.user.domain.model.User
-import com.example.litecartesnative.ui.constants.usersDummy
+import com.example.litecartesnative.constants.usersDummy
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
@@ -185,7 +185,7 @@ fun LeaderboardScreen(
                     )
                     .weight(1f)
             ) {
-                itemsIndexed(usersDummy) {index, user ->
+                itemsIndexed(usersDummy) { index, user ->
                     Spacer(modifier = Modifier.padding(6.dp))
                     PositionCard(
                         user = user,

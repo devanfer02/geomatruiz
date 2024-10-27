@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -23,12 +24,15 @@ import com.example.litecartesnative.R
 import com.example.litecartesnative.components.Navbar
 import com.example.litecartesnative.features.quiz.presentation.components.LevelButton
 import com.example.litecartesnative.features.quiz.presentation.components.ProfileTopBar
-import com.example.litecartesnative.ui.constants.Screen
+import com.example.litecartesnative.constants.Screen
+import com.example.litecartesnative.constants.chaptersData
+import com.example.litecartesnative.constants.levelsData
 import com.example.litecartesnative.ui.theme.LitecartesColor
 
 @Composable
 fun LevelScreen(
-    navController: NavController
+    navController: NavController,
+    chapterId: Int
 ) {
     val scrollState = rememberScrollState()
 
@@ -61,102 +65,28 @@ fun LevelScreen(
                     modifier = Modifier
                         .fillMaxSize()
                 )
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 80.dp,
-                            y = 10.dp
-                        )
-                ) {
-                    LevelButton(
-                        level = 1,
-                        onClick = {
-                            navController.navigate(
-                                Screen.QuestionScreen.route
+                levelsData.forEachIndexed { index, level ->
+                    if (index >= chaptersData[chapterId].levels.size) {
+                        return@forEachIndexed
+                    }
+
+                    Box(
+                        modifier = Modifier
+                            .offset(
+                                x = level.x,
+                                y = level.y
                             )
-                        }
-                    )
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 250.dp,
-                            y = 20.dp
+                    ) {
+                        val level = index + 1
+                        LevelButton(
+                            level = level,
+                            onClick = {
+                                navController.navigate(
+                                    "${Screen.QuestionScreen.route}/$chapterId/levels/$level/questions/1"
+                                )
+                            }
                         )
-                ) {
-                    LevelButton(level = 2)
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 330.dp,
-                            y = 130.dp
-                        )
-                ) {
-                    LevelButton(level = 3)
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 250.dp,
-                            y = 220.dp
-                        )
-                ) {
-                    LevelButton(level = 4)
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 100.dp,
-                            y = 230.dp
-                        )
-                ) {
-                    LevelButton(level = 5)
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 60.dp,
-                            y = 350.dp
-                        )
-                ) {
-                    LevelButton(level = 6)
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 180.dp,
-                            y = 390.dp
-                        )
-                ) {
-                    LevelButton(level = 7)
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 320.dp,
-                            y = 480.dp
-                        )
-                ) {
-                    LevelButton(level = 8)
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 200.dp,
-                            y = 560.dp
-                        )
-                ) {
-                    LevelButton(level = 9)
-                }
-                Box(
-                    modifier = Modifier
-                        .offset(
-                            x = 40.dp,
-                            y = 600.dp
-                        )
-                ) {
-                    LevelButton(level = 10)
+                    }
                 }
             }
             Navbar(navController = navController)
@@ -168,6 +98,7 @@ fun LevelScreen(
 @Composable
 fun PreviewLevelScreen() {
     LevelScreen(
-        navController = rememberNavController()
+        navController = rememberNavController(),
+        chapterId = 0
     )
 }

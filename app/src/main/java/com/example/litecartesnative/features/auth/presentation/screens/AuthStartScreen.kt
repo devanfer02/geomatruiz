@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
-import com.example.litecartesnative.ui.constants.Screen
+import com.example.litecartesnative.constants.Screen
 import com.example.litecartesnative.components.StrokedText
 import com.example.litecartesnative.components.Button
 import com.example.litecartesnative.ui.theme.LitecartesColor

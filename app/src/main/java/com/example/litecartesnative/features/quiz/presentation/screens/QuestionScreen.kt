@@ -1,5 +1,7 @@
 package com.example.litecartesnative.features.quiz.presentation.screens
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,12 +16,15 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,18 +32,32 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.litecartesnative.features.auth.presentation.components.ProgressBar
+import com.example.litecartesnative.constants.Screen
+import com.example.litecartesnative.constants.chaptersData
+import com.example.litecartesnative.features.quiz.presentation.components.ProgressBar
 import com.example.litecartesnative.features.quiz.presentation.components.OptionButton
-import com.example.litecartesnative.features.quiz.domain.model.Question
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 
 @Composable
 fun QuestionScreen(
     navController: NavController,
-    question: Question
+    chapterId: Int,
+    level: Int,
+    id: Int
 ) {
+    val question = chaptersData[chapterId].levels[level - 1][id - 1]
+
     Scaffold(
+        topBar = {
+            ProgressBar(
+                navController = navController,
+                chapterId = chapterId,
+                level = level,
+                current = id,
+                length = chaptersData[chapterId].levels[level - 1].size
+            )
+        },
         modifier = Modifier.systemBarsPadding()
     ) { innerPadding ->
         Column(
@@ -48,7 +67,7 @@ fun QuestionScreen(
                 .background(LitecartesColor.Surface),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            ProgressBar()
+
             Box(
                 modifier = Modifier
 
@@ -84,7 +103,13 @@ fun QuestionScreen(
                         fontSize = 20.sp,
                         fontFamily = nunitosFontFamily
                     )
-
+                    Spacer(modifier = Modifier.padding(4.dp))
+                    if (question.imageId != null) {
+                        Image(
+                            painter = painterResource(id = question.imageId),
+                            contentDescription = ""
+                        )
+                    }
                     Text(
                         text = question.description,
                         textAlign = TextAlign.Justify,
@@ -126,6 +151,38 @@ fun QuestionScreen(
                             OptionButton(text = option)
                         }
                     }
+                    Spacer(
+                        modifier = Modifier
+                            .padding(10.dp)
+                    )
+                    OutlinedButton(
+                        modifier = Modifier
+                            .padding(5.dp)
+                            .fillMaxWidth()
+                        ,
+                        onClick = {
+                            if (id != chaptersData[chapterId].levels[level - 1].size) {
+                                navController.navigate(
+                                    "${Screen.QuestionScreen.route}/$chapterId/levels/$level/questions/${id + 1}"
+                                )
+                            } else {
+                                navController.navigate(
+                                    "${Screen.ResultScreen.route}/${chapterId}"
+                                )
+                            }
+                        },
+                        shape = RoundedCornerShape(12.dp),
+                        border = BorderStroke(1.dp, LitecartesColor.DarkBrown),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = LitecartesColor.DarkBrown
+                        ),
+                        elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp) // Add elevation here
+                    ) {
+                        Text(
+                            text = "Lanjutkan",
+                            color = LitecartesColor.Surface
+                        )
+                    }
                 }
             }
         }
@@ -136,18 +193,9 @@ fun QuestionScreen(
 @Composable
 fun PreviewQuestionScreen() {
     QuestionScreen(
-        question = Question(
-            title = "Artificial Intelligence (AI)",
-            description = "Artificial Intelligence (AI) menjadi semakin terdepan dalam dunia teknologi. Kemampuannya untuk mengenali pola, belajar dari pengalaman, dan membuat keputusan semakin kompleks, memperluas penggunaannya dari industri hingga ke kehidupan sehari-hari. Dari asisten virtual yang bisa merespon pertanyaan kita hingga mobil otonom yang dapat mengemudi sendiri, kehadiran AI telah mengubah cara kita berinteraksi dengan teknologi.",
-            question = "Apa yang membuat Artificial Intelligence semakin dominan dalam dunia teknologi?",
-            options = mutableListOf(
-                "Kemampuan belajar dari pengalaman",
-                "Keterbatasan dalam penggunaan",
-                "Ketergantungan pada manusia",
-                "Kelemahan dalam mengenali pola"
-            ),
-            rightIndex = 0
-        ),
-        navController = rememberNavController()
+        navController = rememberNavController(),
+        chapterId = 0,
+        level = 1,
+        id = 1
     )
 }

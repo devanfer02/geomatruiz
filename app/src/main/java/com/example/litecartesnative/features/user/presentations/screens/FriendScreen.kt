@@ -29,7 +29,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.components.Navbar
 import com.example.litecartesnative.features.user.presentations.components.AddFriendCard
 import com.example.litecartesnative.features.user.presentations.components.Input
-import com.example.litecartesnative.ui.constants.usersDummy
+import com.example.litecartesnative.constants.usersDummy
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 

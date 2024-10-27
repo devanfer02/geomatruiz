@@ -15,6 +15,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -74,25 +78,37 @@ fun ProfileScreen(
                 Box(
                     modifier = Modifier
                         .size(100.dp)
-                        .shadow(
-                            elevation = 20.dp,
-                            shape = RoundedCornerShape(
-                                bottomStart = 20.dp,
-                                bottomEnd = 20.dp
-                            )
-                        )
-                        .background(
-                            LitecartesColor.Surface,
-                            shape = CircleShape
-                        ),
-                    contentAlignment = Alignment.Center
+                        ,
+                    contentAlignment = Alignment.BottomEnd
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.template_profile),
                         contentDescription = "profile",
                         modifier = Modifier
                             .size(100.dp)
+                            .shadow(
+                                elevation = 20.dp,
+                                shape = CircleShape
+                            )
+                            .background(
+                                LitecartesColor.Surface,
+                                shape = CircleShape
+                            )
                     )
+                    IconButton(
+                        onClick = {},
+                        modifier = Modifier
+                            .size(24.dp)
+                            .clip(CircleShape)
+                            .background(LitecartesColor.Secondary)
+                            .padding(4.dp),
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Edit,
+                            contentDescription = "Edit Icon",
+                            tint = LitecartesColor.Surface,
+                        )
+                    }
                 }
                 Spacer(
                     modifier = Modifier

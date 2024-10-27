@@ -12,7 +12,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,7 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.R
-import com.example.litecartesnative.ui.constants.Screen
+import com.example.litecartesnative.constants.Screen
 import com.example.litecartesnative.features.auth.presentation.components.AuthTopBar
 import com.example.litecartesnative.components.Button
 import com.example.litecartesnative.features.auth.presentation.components.Input
@@ -36,6 +41,14 @@ import com.example.litecartesnative.ui.theme.nunitosFontFamily
 fun AuthLoginScreen(
     navController: NavController
 ) {
+    var email by remember {
+        mutableStateOf("")
+    }
+
+    var password by remember {
+        mutableStateOf("")
+    }
+
     Scaffold(
         topBar = {
             AuthTopBar(
@@ -61,20 +74,20 @@ fun AuthLoginScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Input(
-                    value = "",
-                    label = "Username",
+                    value = email,
+                    label = "Email",
                     onValueChange = {
-
+                        email = it
                     }
                 )
                 Spacer(
                     modifier = Modifier.padding(2.dp)
                 )
                 Input(
-                    value = "",
+                    value = password,
                     label = "Password",
                     onValueChange = {
-
+                        password = it
                     }
                 )
                 Row(

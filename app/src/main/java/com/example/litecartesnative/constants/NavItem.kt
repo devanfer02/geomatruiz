@@ -1,4 +1,4 @@
-package com.example.litecartesnative.ui.constants
+package com.example.litecartesnative.constants
 
 import com.example.litecartesnative.R
 
