@@ -50,4 +50,8 @@ sealed class Screen(
     object ResultScreen : Screen(
         "result_screen"
     )
+
+    object AboutScreen : Screen(
+        "about_screen"
+    )
 }

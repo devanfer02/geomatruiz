@@ -216,7 +216,7 @@ fun QuestionScreen(
                             ) {
                                 Text(
                                     text = if (question.answer == selectedOption) {
-                                        "Kamu benar!"
+                                        "Yey, kamu benar!"
                                     } else {
                                         "Yah, kamu salah"
                                     },

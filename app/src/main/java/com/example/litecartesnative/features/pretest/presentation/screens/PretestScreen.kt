@@ -127,7 +127,7 @@ fun PretestScreen(
                 textColor = LitecartesColor.Surface,
                 onClick = {
                     val route = if (pretestId >= pretestsData.size) {
-                        "${Screen.HomeScreen.route}"
+                        "${Screen.AboutScreen.route}"
                     } else {
                         "${Screen.PretestScreen.route}/${pretestId+1}"
                     }

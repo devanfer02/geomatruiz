@@ -21,6 +21,7 @@ import com.example.litecartesnative.features.user.presentations.screens.FriendSc
 import com.example.litecartesnative.features.user.presentations.screens.ProfileScreen
 import com.example.litecartesnative.constants.Screen
 import com.example.litecartesnative.constants.questionDummy
+import com.example.litecartesnative.features.auth.presentation.screens.AboutScreen
 import com.example.litecartesnative.features.quiz.presentation.screens.ResultScreen
 
 
@@ -37,6 +38,13 @@ fun Navigation() {
             route = Screen.AuthStartScreen.route
         ) {
             AuthStartScreen(
+                navController = navController
+            )
+        }
+        composable(
+            route = Screen.AboutScreen.route
+        ) {
+            AboutScreen(
                 navController = navController
             )
         }

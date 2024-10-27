@@ -103,7 +103,7 @@ fun AuthStartScreen(
                     backgroundColor = LitecartesColor.Surface,
                     onClick = {
                         navController.navigate(
-                            route = Screen.AuthLoginScreen.route
+                            route = Screen.HomeScreen.route
                         )
                     },
                     textModifier = Modifier.padding(8.dp),
