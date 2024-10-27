@@ -1,6 +1,7 @@
 package com.example.litecartesnative.components
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,6 +23,7 @@ import com.example.litecartesnative.constants.Screen
 import com.example.litecartesnative.constants.questionDummy
 import com.example.litecartesnative.features.quiz.presentation.screens.ResultScreen
 
+
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
@@ -30,6 +32,7 @@ fun Navigation() {
         navController = navController,
         startDestination = Screen.AuthStartScreen.route
     ) {
+
         composable(
             route = Screen.AuthStartScreen.route
         ) {

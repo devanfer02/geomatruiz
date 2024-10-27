@@ -17,6 +17,7 @@ import com.example.litecartesnative.ui.theme.LitecartesColor
 @Composable
 fun PretestButton(
     text: String,
+    isActive: Boolean = false,
     onClick: () -> Unit = {},
     backgroundColor: Color = LitecartesColor.DarkerSurface,
     textColor: Color = LitecartesColor.DarkBrown
@@ -33,13 +34,21 @@ fun PretestButton(
         shape = RoundedCornerShape(12.dp),
         border = BorderStroke(1.dp, backgroundColor),
         colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor
+            containerColor = if(isActive) {
+                textColor
+            } else {
+                backgroundColor
+            }
         ),
         elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp) // Add elevation here
     ) {
         Text(
             text = text,
-            color = textColor,
+            color = if(isActive) {
+                backgroundColor
+            } else {
+                textColor
+            },
             modifier = Modifier
                 .padding(
                     vertical = 4.dp

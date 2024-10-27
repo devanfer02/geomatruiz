@@ -80,7 +80,7 @@ val chaptersData = mutableListOf(
             ),
             mutableListOf(
                 Question(
-                    title = "Geometri",
+                    title = "Pengukuran",
                     imageId = R.drawable.fase_a_l2_1,
                     question = "Pensil manakah yang paling panjang?",
                     options = mutableListOf(
@@ -92,7 +92,7 @@ val chaptersData = mutableListOf(
                     answer = "Pensil biru"
                 ),
                 Question(
-                    title = "Geometri",
+                    title = "Pengukuran",
                     imageId = R.drawable.fase_a_l2_2,
                     question = "Manakah yang lebih panjang?",
                     options = mutableListOf(
@@ -110,7 +110,57 @@ val chaptersData = mutableListOf(
         description = "Pada chapter ini, kita akan belajar ciri-ciri bangun datar dan bangun ruang",
         imageLink = R.drawable.chap2,
         levels = mutableListOf(
-            mutableListOf()
+            mutableListOf(
+                Question(
+                    title = "Geometri",
+                    imageId = R.drawable.fase_b_l1_1,
+                    question = "Manakah yang merupakan ciri persegi panjang?\n",
+                    options = mutableListOf(
+                        "Semua sisi sama panjang",
+                        "Memiliki dua pasang sisi sejajar dan sama panjang",
+                        "Memiliki tiga sisi sama panjang"
+                    ),
+                    description = "Perhatikan persegi panjang pada gambar tersebut",
+                    answer = "Semua sisi sama panjang"
+                ),
+                Question(
+                    title = "Geometri",
+                    imageId = R.drawable.fase_b_l1_2,
+                    question = "Bangun apakah ini",
+                    options = mutableListOf(
+                        "Persegi panjang",
+                        "Persegi",
+                        "Jajar genjang"
+                    ),
+                    description = "Bangun datar ini bisa dibagi menjadi dua segitiga yang sama. ",
+                    answer = "Persegi"
+                )
+            ),
+            mutableListOf(
+                Question(
+                    title = "Pengukuran",
+                    question = "Berapa meter panjang pita tersebut?",
+                    options = mutableListOf(
+                        "3 meter",
+                        "30 meter",
+                        "0.3 meter"
+                    ),
+                    description = "Budi memiliki sebuah pita yang memiliki panjang 300 centimeter",
+                    answer = "3 meter"
+                ),
+                Question(
+                    title = "Pengukuran",
+                    imageId = R.drawable.fase_b_l2_2,
+                    question = "Berapa luas persegi pada gambar tersebut jika dihitung menggunakan satuan persegi?",
+                    options = mutableListOf(
+                        "8 satuan persegi",
+                        "12 satuan persegi",
+                        "16 satuan persegi"
+                    ),
+                    description = "Perhatikan gambar tersebut",
+                    answer = "16 satuan persegi"
+                )
+            )
         )
     ),
 )

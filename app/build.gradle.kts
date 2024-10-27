@@ -66,6 +66,7 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.0")
     implementation("io.coil-kt:coil-compose:2.1.0")
     implementation("com.google.dagger:hilt-android:2.44")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation("io.arrow-kt:arrow-core:1.2.0")
     implementation("io.arrow-kt:arrow-fx-coroutines:1.2.0")
     kapt("com.google.dagger:hilt-compiler:2.52")

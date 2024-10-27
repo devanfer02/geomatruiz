@@ -51,7 +51,7 @@ fun AuthStartScreen(
                     .height(300.dp)
             )
             StrokedText(
-                text = "selamat datang\n sobat litecartes".uppercase(),
+                text = "selamat datang\n sobat geomatruiz".uppercase(),
                 color = LitecartesColor.Secondary,
                 strokeColor = Color.Black,
                 fontSize = 24.sp,
@@ -59,9 +59,14 @@ fun AuthStartScreen(
                 textAlign = TextAlign.Center
             )
             Text(
-                text = "Mari kita petualangan literasi!",
+                text = "Mari kita jelajahi bangun datar dan bangun ruang!",
                 fontFamily = nunitosFontFamily,
-                color = LitecartesColor.Secondary
+                color = LitecartesColor.Secondary,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(
+                        horizontal = 60.dp
+                    )
             )
             Column(
                 modifier = Modifier

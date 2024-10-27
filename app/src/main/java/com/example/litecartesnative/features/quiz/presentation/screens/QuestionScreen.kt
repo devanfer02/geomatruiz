@@ -9,16 +9,26 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,11 +44,15 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.litecartesnative.constants.Screen
 import com.example.litecartesnative.constants.chaptersData
+import com.example.litecartesnative.constants.pretestsData
+import com.example.litecartesnative.features.pretest.presentation.components.PretestButton
 import com.example.litecartesnative.features.quiz.presentation.components.ProgressBar
 import com.example.litecartesnative.features.quiz.presentation.components.OptionButton
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
+import androidx.hilt.navigation.compose.hiltViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun QuestionScreen(
     navController: NavController,
@@ -47,6 +61,12 @@ fun QuestionScreen(
     id: Int
 ) {
     val question = chaptersData[chapterId].levels[level - 1][id - 1]
+    var selectedOption by remember {
+        mutableStateOf("")
+    }
+    var showDialog by remember {
+        mutableStateOf(false)
+    }
 
     Scaffold(
         topBar = {
@@ -107,7 +127,9 @@ fun QuestionScreen(
                     if (question.imageId != null) {
                         Image(
                             painter = painterResource(id = question.imageId),
-                            contentDescription = ""
+                            contentDescription = "",
+                            modifier = Modifier
+                                .size(250.dp)
                         )
                     }
                     Text(
@@ -147,8 +169,14 @@ fun QuestionScreen(
                             .padding(10.dp)
                     )
                     LazyColumn {
-                        items(question.options) { option ->
-                            OptionButton(text = option)
+                        itemsIndexed(question.options) { index, option ->
+                            OptionButton(
+                                text = option,
+                                isActive = option == selectedOption,
+                                onClick = {
+                                    selectedOption = option
+                                }
+                            )
                         }
                     }
                     Spacer(
@@ -158,35 +186,85 @@ fun QuestionScreen(
                     OutlinedButton(
                         modifier = Modifier
                             .padding(5.dp)
-                            .fillMaxWidth()
-                        ,
+                            .fillMaxWidth(),
                         onClick = {
-                            if (id != chaptersData[chapterId].levels[level - 1].size) {
-                                navController.navigate(
-                                    "${Screen.QuestionScreen.route}/$chapterId/levels/$level/questions/${id + 1}"
-                                )
-                            } else {
-                                navController.navigate(
-                                    "${Screen.ResultScreen.route}/${chapterId}"
-                                )
-                            }
+
+                            showDialog = true
                         },
                         shape = RoundedCornerShape(12.dp),
                         border = BorderStroke(1.dp, LitecartesColor.DarkBrown),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = LitecartesColor.DarkBrown
                         ),
-                        elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp) // Add elevation here
+                        elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp)
                     ) {
                         Text(
                             text = "Lanjutkan",
                             color = LitecartesColor.Surface
                         )
                     }
+                    if (showDialog) {
+                        ModalBottomSheet(
+                            onDismissRequest = { showDialog = false },
+                            containerColor = LitecartesColor.Surface
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(200.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = if (question.answer == selectedOption) {
+                                        "Kamu benar!"
+                                    } else {
+                                        "Yah, kamu salah"
+                                    },
+                                    fontFamily = nunitosFontFamily,
+                                    fontSize = 20.sp,
+                                    color = LitecartesColor.Secondary,
+                                    fontWeight = FontWeight.Bold
+                                )
+                                Column(
+                                    modifier = Modifier
+                                        .padding(
+                                            horizontal = 20.dp
+                                        )
+                                ) {
+                                    PretestButton(
+                                        text = "Lanjut",
+                                        backgroundColor = LitecartesColor.Secondary,
+                                        textColor = LitecartesColor.Surface,
+                                        onClick = {
+                                            if (id != chaptersData[chapterId].levels[level - 1].size) {
+                                                navController.navigate(
+                                                    "${Screen.QuestionScreen.route}/$chapterId/levels/$level/questions/${id + 1}"
+                                                )
+                                            } else {
+                                                navController.navigate(
+                                                    "${Screen.ResultScreen.route}/${chapterId}"
+                                                )
+                                            }
+
+                                        }
+                                    )
+                                    PretestButton(
+                                        text = "Ulangi",
+                                        onClick = {
+                                            showDialog = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
+
+                    }
                 }
             }
         }
+
     }
+
 }
 
 @Preview

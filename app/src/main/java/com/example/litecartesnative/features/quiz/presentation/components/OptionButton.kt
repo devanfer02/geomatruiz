@@ -17,6 +17,7 @@ import com.example.litecartesnative.ui.theme.LitecartesColor
 @Composable
 fun OptionButton(
     text: String,
+    isActive: Boolean = false,
     onClick: () -> Unit = {}
 ) {
     OutlinedButton(
@@ -26,15 +27,26 @@ fun OptionButton(
             ,
         onClick = onClick,
         shape = RoundedCornerShape(12.dp),
-        border = BorderStroke(1.dp, LitecartesColor.Secondary),
+        border = BorderStroke(
+            width = 1.dp,
+            color = LitecartesColor.Secondary
+        ),
         colors = ButtonDefaults.buttonColors(
-            containerColor = LitecartesColor.DarkerSurface
+            containerColor = if(isActive) {
+                LitecartesColor.Secondary
+            } else {
+                LitecartesColor.DarkerSurface
+            }
         ),
         elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp) // Add elevation here
     ) {
         Text(
             text = text,
-            color = LitecartesColor.Secondary
+            color = if(isActive) {
+                LitecartesColor.Surface
+            } else {
+                LitecartesColor.Secondary
+            }
         )
     }
 }
@@ -43,6 +55,6 @@ fun OptionButton(
 @Composable
 fun PreviewOptionButton() {
     OptionButton(
-        text = "Ini Opsi A" 
+        text = "Ini Opsi A"
     )
 }
