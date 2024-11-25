@@ -166,7 +166,59 @@ val chaptersData = mutableListOf(
         description = "Pada chapter ini, kita akan mengenal berbagai macam bangun ruang",
         imageLink = R.drawable.chap2,
         levels = mutableListOf(
-            mutableListOf()
+            mutableListOf(
+                Question(
+                    title = "Geometri",
+                    description = "Perhatikan persegi panjang ini!",
+                    imageId = R.drawable.b1_1___persegi_panjang,
+                    question = "Sebutkan ciri-ciri bangun datar ini",
+                    options = mutableListOf(
+                        "Memiliki 4 sisi sama panjang",
+                        "Memiliki 2 pasang sisi sejajar dan sama panjang",
+                        "Memiliki 3 sisi sama panjang"
+                    ),
+                    answer = "Memiliki 2 pasang sisi sejajar dan sama panjang",
+                    material = Material(
+                        title = "Menjelaskan ciri-ciri bangun datar",
+                        image = R.drawable.b1_1___persegi_panjang,
+                        description = "Persegi panjang memiliki 4 sudut siku-siku dan 2 pasang sisi yang sejajar dan sama panjang. Sisi yang berhadapan selalu sama panjang."
+                    )
+                ),
+                Question(
+                    title = "Geometri",
+                    description = "Bangun datar ini bisa dibagi menjadi dua segitiga yang sama. ",
+                    question = "Bangun apakah itu?",
+                    options = mutableListOf(
+                        "Persegi panjang",
+                        "Persegi",
+                        "Jajar genjang"
+                    ),
+                    answer = "Persegi",
+                    material = Material(
+                        title = "Mengurai satu bangun datar menjadi beberapa bangun datar lain.",
+                        description = "Persegi dapat dibagi (didekomposisi) menjadi dua segitiga sama besar dengan menarik garis diagonal. Persegi adalah bangun datar yang memiliki empat sisi sama panjang dan empat sudut siku-siku."
+                    )
+                )
+            ),
+            mutableListOf(
+                Question(
+                    title = "Geometri",
+                    description = "",
+                    question = "Manakah posisi buku yang benar",
+                    imageId = R.drawable.b2_1___meja_dan_buku,
+                    options = mutableListOf(
+                        "Di samping meja",
+                        "Di bawah meja",
+                        "Di atas meja",
+                    ),
+                    answer = "Di atas meja",
+                    material = Material(
+                        title = "Mendeskripsikan posisi benda terhadap benda lain",
+                        image = R.drawable.b2_1___meja_dan_buku,
+                        description = "Posisi benda dapat dijelaskan menggunakan kata: depan, belakang, kanan, atau kiri. Jika sebuah benda berada di hadapan kita, maka benda itu ada di depan. Jika benda berada di sisi tangan kanan kita, maka benda itu ada di kanan. Jika berada di tingkat di atas benda lain, maka benda itu ada di atas."
+                    )
+                )
+            )
         )
     ),
     Chapter(

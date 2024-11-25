@@ -141,7 +141,7 @@ fun Navigation() {
 
             if (toresult) {
                 navController.navigate(
-                    "${Screen.ResultScreen.route}/${chapterId}"
+                    "${Screen.ResultScreen.route}/${chapterId}/levels/${level}"
                 )
             }
 
