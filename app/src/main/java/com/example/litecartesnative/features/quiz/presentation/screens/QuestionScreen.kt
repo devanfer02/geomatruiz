@@ -51,6 +51,9 @@ import com.example.litecartesnative.features.quiz.presentation.components.Option
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.litecartesnative.R
+import com.example.litecartesnative.features.quiz.domain.model.QuizIndex
+import com.example.litecartesnative.features.quiz.presentation.singletons.WrongQuizManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -58,7 +61,8 @@ fun QuestionScreen(
     navController: NavController,
     chapterId: Int,
     level: Int,
-    id: Int
+    id: Int,
+    toquestion: Boolean = false
 ) {
     val question = chaptersData[chapterId].levels[level - 1][id - 1]
     var selectedOption by remember {
@@ -188,7 +192,13 @@ fun QuestionScreen(
                             .padding(5.dp)
                             .fillMaxWidth(),
                         onClick = {
-
+                            if (selectedOption != question.answer) {
+                                WrongQuizManager.queue.addLast(QuizIndex(
+                                    chapterId,
+                                    level,
+                                    id
+                                ))
+                            }
                             showDialog = true
                         },
                         shape = RoundedCornerShape(12.dp),
@@ -211,7 +221,7 @@ fun QuestionScreen(
                             Column(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(200.dp),
+                                    .height(350.dp),
                                 horizontalAlignment = Alignment.CenterHorizontally
                             ) {
                                 Text(
@@ -225,6 +235,18 @@ fun QuestionScreen(
                                     color = LitecartesColor.Secondary,
                                     fontWeight = FontWeight.Bold
                                 )
+                                Image(
+                                    painter = painterResource(
+                                        id = if(question.answer == selectedOption) {
+                                            R.drawable.chap1
+                                        } else {
+                                            R.drawable.tanya
+                                        }
+                                    ),
+                                    contentDescription = "",
+                                    modifier = Modifier.size(200.dp)
+                                )
+
                                 Column(
                                     modifier = Modifier
                                         .padding(
@@ -238,20 +260,13 @@ fun QuestionScreen(
                                         onClick = {
                                             if (id != chaptersData[chapterId].levels[level - 1].size) {
                                                 navController.navigate(
-                                                    "${Screen.QuestionScreen.route}/$chapterId/levels/$level/questions/${id + 1}"
+                                                    "${Screen.QuestionScreen.route}/$chapterId/levels/$level/questions/${id + 1}?toresult=${toquestion}"
                                                 )
                                             } else {
                                                 navController.navigate(
-                                                    "${Screen.ResultScreen.route}/${chapterId}"
+                                                    "${Screen.ResultScreen.route}/${chapterId}/levels/${level}"
                                                 )
                                             }
-
-                                        }
-                                    )
-                                    PretestButton(
-                                        text = "Ulangi",
-                                        onClick = {
-                                            showDialog = false
                                         }
                                     )
                                 }

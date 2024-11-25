@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.example.litecartesnative.ui.theme.LitecartesColor
 import com.example.litecartesnative.ui.theme.nunitosFontFamily
@@ -39,7 +40,8 @@ fun Button(
     icon: Painter? = null,
     onClick: () -> Unit = {},
     textModifier: Modifier = Modifier,
-    horizontalArrangement: Arrangement.Horizontal = Arrangement.Center
+    horizontalArrangement: Arrangement.Horizontal = Arrangement.Center,
+    fontSize: TextUnit = TextUnit.Unspecified
 ) {
     Box {
         if (shadowEnabled) {
@@ -82,6 +84,7 @@ fun Button(
                         color = color,
                         fontWeight = FontWeight.ExtraBold,
                         fontFamily = nunitosFontFamily,
+                        fontSize = fontSize
                     )
                 }
             }
@@ -124,6 +127,7 @@ fun Button(
                     color = color,
                     fontWeight = FontWeight.ExtraBold,
                     fontFamily = nunitosFontFamily,
+                    fontSize = fontSize
                 )
             }
         }

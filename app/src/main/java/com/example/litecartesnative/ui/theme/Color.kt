@@ -18,5 +18,6 @@ object LitecartesColor {
     val DarkerSurface = Color(0xFFF9BD85)
     val DarkBrown = Color(0xFF662500)
     val PathColor = Color(0xFFF5E9B8)
+    val GreenCactus = Color(0xFF588432)
 }
 

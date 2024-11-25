@@ -54,4 +54,8 @@ sealed class Screen(
     object AboutScreen : Screen(
         "about_screen"
     )
+
+    object FeedbackScreen : Screen(
+        "feedback_screen"
+    )
 }

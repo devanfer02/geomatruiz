@@ -6,5 +6,6 @@ data class Question(
     val description: String,
     val question: String,
     val options: List<String>,
-    val answer: String
+    val answer: String,
+    val material: Material? = null
 )

@@ -27,6 +27,7 @@ import com.example.litecartesnative.features.quiz.presentation.components.Profil
 import com.example.litecartesnative.constants.Screen
 import com.example.litecartesnative.constants.chaptersData
 import com.example.litecartesnative.constants.levelsData
+import com.example.litecartesnative.features.quiz.presentation.singletons.MarkAsDoneManager
 import com.example.litecartesnative.ui.theme.LitecartesColor
 
 @Composable
@@ -84,7 +85,8 @@ fun LevelScreen(
                                 navController.navigate(
                                     "${Screen.QuestionScreen.route}/$chapterId/levels/$level/questions/1"
                                 )
-                            }
+                            },
+                            done =MarkAsDoneManager.levels[chapterId][level-1]
                         )
                     }
                 }

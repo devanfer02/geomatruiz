@@ -3,18 +3,19 @@ package com.example.litecartesnative.constants
 import com.example.litecartesnative.R
 import com.example.litecartesnative.features.pretest.domain.model.Pretest
 import com.example.litecartesnative.features.quiz.domain.model.Chapter
+import com.example.litecartesnative.features.quiz.domain.model.Material
 import com.example.litecartesnative.features.quiz.domain.model.Question
 
 val pretestsData = mutableListOf(
     Pretest(
-        question = "Manakah yang berbentuk seperti es krim?",
+        question = "Manakah yang berbentuk seperti roda?",
         options = mutableListOf(
-            "Bola",
-            "Kubus",
-            "Kerucut"
+            "Segitiga",
+            "Persegi",
+            "Lingkaran"
         ),
-        answer = "Kerucut",
-        imageId = R.drawable.pretest1
+        answer = "Lingkaran",
+        imageId = R.drawable.a1_1a___3_bangun_datar
     ),
     Pretest(
         question = "Di antara benda tersebut, manakah yang paling panjang?",
@@ -24,7 +25,7 @@ val pretestsData = mutableListOf(
             "Penghapus"
         ),
         answer = "Penggaris",
-        imageId = R.drawable.pretest2
+        imageId = R.drawable.p2___penghapus_pensil_penggaris
     ),
     Pretest(
         question = "Sebutkan ciri-ciri bangun datar ini:\n",
@@ -34,22 +35,24 @@ val pretestsData = mutableListOf(
             "Memiliki 3 sisi sama panjang"
         ),
         answer = "Memiliki 2 pasang sisi sejajar dan sama panjang",
-        imageId = R.drawable.pretest3
+        imageId = R.drawable.b1_1___persegi_panjang
     ),
     Pretest(
-        question = "Panjang sebuah tali adalah 250 centimeter. Berapa meter panjang tali tersebut?",
+        question = "Manakah posisi buku yang benar",
         options = mutableListOf(
-            "2.5 meter",
-            "25 meter",
-            "0.25 meter"
-        )
+            "Di samping meja",
+            "Di bawah meja",
+            "Di atas meja"
+        ),
+        answer = "Di atas meja",
+        imageId = R.drawable.b2_1___meja_dan_buku
     )
 )
 
 val chaptersData = mutableListOf(
     Chapter(
         title = "Mengenal Bangun Datar",
-        description = "Belajar mengenal bangun datar dan bangun ruang serta pengukurannya",
+        description = "Pada chapter ini, kita akan mengenal berbagai macam bangun datar",
         imageLink = R.drawable.chap1,
         levels = mutableListOf(
             mutableListOf(
@@ -63,46 +66,107 @@ val chaptersData = mutableListOf(
                         "Lingkaran"
                     ),
                     description = "",
-                    answer = "Lingkaran"
+                    answer = "Lingkaran",
+                    material = Material(
+                        image = R.drawable.a1_1b___roda_dan_lingkaran,
+                        title = "Mendeskripsikan benda berdasarkan bentuk",
+                        description = "Lingkaran adalah bentuk yang bulat sempurna, seperti roda, koin, atau piring. Semua titik di tepi lingkaran memiliki jarak yang sama ke pusatnya."
+                    )
                 ),
-                Question(
-                    title = "Geometri",
-                    imageId = R.drawable.fase_a_l1_2,
-                    question = "Manakah posisi buku yang benar?\n",
-                    options = mutableListOf(
-                        "Di kanan meja",
-                        "Di depan meja",
-                        "Di atas meja"
-                    ),
-                    description = "",
-                    answer = "Di atas meja"
-                )
             ),
             mutableListOf(
                 Question(
-                    title = "Pengukuran",
-                    imageId = R.drawable.fase_a_l2_1,
-                    question = "Pensil manakah yang paling panjang?",
+                    title = "Geometri",
+                    imageId = R.drawable.a2_1,
+                    question = "Apakah Pohon A lebih tinggi dari pohon B?",
                     options = mutableListOf(
-                        "Pensil merah",
-                        "Pensil biru",
-                        "Pensil hijau"
+                        "Ya",
+                        "Tidak",
                     ),
-                    description = "Bandingkan panjang pensil diatas",
-                    answer = "Pensil biru"
+                    description = "Ayo kita amati gambar pohon pisang berikut.",
+                    answer = "Ya",
+                    material = Material(
+                        title = "Membandingkan dan Mengurutkan Panjang Benda",
+                        image = R.drawable.a2_1,
+                        description = "Pohon A lebih tinggi dari Pohon B\nPohon B lebih pendek dari Pohon A\nKita menggunakan kata lebih tinggi dan lebih pendek untuk membandingkan tinggi 2 benda"
+                    )
                 ),
                 Question(
-                    title = "Pengukuran",
-                    imageId = R.drawable.fase_a_l2_2,
+                    title = "Geometri",
+                    imageId = R.drawable.a2_2,
+                    question = "Pilihlah pernyataan yang tepat",
+                    options = mutableListOf(
+                        "Pohon B lebih tinggi dari pohon C",
+                        "Pohon B lebih pendek dari pohon C",
+                        "Pohon B sama tinggi dengan pohon C"
+                    ),
+                    description = "Ayo kita bandingkan tinggi pohon pisang B dan C.",
+                    answer = "Pohon B sama tinggi dengan pohon C",
+                    material = Material(
+                        title = "Membandingkan dan Mengurutkan Panjang Benda",
+                        image = R.drawable.a2_2,
+                        description = "2 Pohon tersebut memiliki tinggi yang sama.\nKita menggunakan kata sama tinggi untuk membandingkannya"
+                    )
+                ),
+                Question(
+                    title = "Geometri",
+                    imageId = R.drawable.a2_3,
+                    question = "Urutkan 4 pohon pada gambar dari yang paling tinggi hingga yang paling pendek",
+                    options = mutableListOf(
+                        "Urutan pohon dari yang paling tinggi adalah A, B, C, dan D atau A, C, B, dan D.",
+                        "Urutan pohon dari yang paling tinggi adalah D, B, C, A atau D, C, B, A."
+                    ),
+                    description = "",
+                    answer = "Urutan pohon dari yang paling tinggi adalah A, B, C, dan D atau A, C, B, dan D.",
+                    material = Material(
+                        title = "Membandingkan dan Mengurutkan Panjang Benda",
+                        image = R.drawable.a2_3,
+                        description = "Urutan pohon dari yang paling tinggi adalah A, B, C, dan D atau A, C, B, dan D.\nKarena Pohon A lebih tinggi dari pohon A dan pohon B, dan pohon B dan pohon C lebih tinggi dari pohon D, maka:\nUrutan pohon dari yang paling tinggi adalah A, B, C, dan D atau A, C, B, dan D."
+                    )
+                ),
+                Question(
+                    title = "Geometri",
+                    imageId = R.drawable.a2_4a,
                     question = "Manakah yang lebih panjang?",
                     options = mutableListOf(
                         "Meja",
-                        "Buku"
+                        "Pensil"
                     ),
-                    description = "Perhatikan jengkal tangan yang ada pada gambar",
-                    answer = "Di atas meja"
+                    description = "Perhatikan jengkal tangan yang ada di gambar.",
+                    answer = "Meja",
+                    material = Material(
+                        title = "Membandingkan dan Mengurutkan Panjang Benda",
+                        image = R.drawable.a2_4b,
+                        description = "Kita bisa mengukur panjang benda menggunakan satuan tidak baku seperti jengkal tangan, langkah kaki, atau pensil. Jengkal adalah jarak dari ujung ibu jari ke ujung jari kelingking saat tangan dibentangkan."
+                    )
+                ),
+                Question(
+                    title = "Geometri",
+                    imageId = R.drawable.a2_4a,
+                    question = "Berapakah panjang meja dan pensil dalam satuan jengkal tangan?",
+                    options = mutableListOf(
+                        "Panjang meja adalah 4 jengkal tangan; panjang pensil adalah 2 jengkal tangan.",
+                        "Panjang meja adalah 5 jengkal tangan; panjang pensil adalah 1 jengkal tangan",
+                        "Panjang meja adalah 2 jengkal tangan; panjang pensil adalah 1 jengkal tangan."
+                    ),
+                    description = "",
+                    answer = "Panjang meja adalah 5 jengkal tangan; panjang pensil adalah 1 jengkal tangan",
+                    material = Material(
+                        title = "Mengukur Panjang Benda",
+                        image = R.drawable.a2_4b,
+                        description = "Jengkal adalah jarak dari ujung ibu jari ke ujung jari kelingking saat tangan dibentangkan.\n" + "Panjang pensil dan meja berbeda.\n" +
+                                "Hasil pengukuran pensil dan meja berbeda.\n"
+                    )
                 )
             )
+        )
+    ),
+    Chapter(
+        title = "Mengenal Bangun Ruang",
+        description = "Pada chapter ini, kita akan mengenal berbagai macam bangun ruang",
+        imageLink = R.drawable.chap2,
+        levels = mutableListOf(
+            mutableListOf()
         )
     ),
     Chapter(
