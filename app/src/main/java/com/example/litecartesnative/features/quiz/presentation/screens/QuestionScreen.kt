@@ -187,32 +187,35 @@ fun QuestionScreen(
                         modifier = Modifier
                             .padding(10.dp)
                     )
-                    OutlinedButton(
-                        modifier = Modifier
-                            .padding(5.dp)
-                            .fillMaxWidth(),
-                        onClick = {
-                            if (selectedOption != question.answer) {
-                                WrongQuizManager.queue.addLast(QuizIndex(
-                                    chapterId,
-                                    level,
-                                    id
-                                ))
-                            }
-                            showDialog = true
-                        },
-                        shape = RoundedCornerShape(12.dp),
-                        border = BorderStroke(1.dp, LitecartesColor.DarkBrown),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = LitecartesColor.DarkBrown
-                        ),
-                        elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp)
-                    ) {
-                        Text(
-                            text = "Lanjutkan",
-                            color = LitecartesColor.Surface
-                        )
+                    if(!selectedOption.isEmpty()) {
+                        OutlinedButton(
+                            modifier = Modifier
+                                .padding(5.dp)
+                                .fillMaxWidth(),
+                            onClick = {
+                                if (selectedOption != question.answer) {
+                                    WrongQuizManager.queue.addLast(QuizIndex(
+                                        chapterId,
+                                        level,
+                                        id
+                                    ))
+                                }
+                                showDialog = true
+                            },
+                            shape = RoundedCornerShape(12.dp),
+                            border = BorderStroke(1.dp, LitecartesColor.DarkBrown),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = LitecartesColor.DarkBrown
+                            ),
+                            elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 8.dp)
+                        ) {
+                            Text(
+                                text = "Lanjutkan",
+                                color = LitecartesColor.Surface
+                            )
+                        }
                     }
+
                     if (showDialog) {
                         ModalBottomSheet(
                             onDismissRequest = { showDialog = false },
